@@ -3,3 +3,5 @@
 # Adding the file which we dont want to put in git
 
 /node_modules
+/.parcel-cache
+/dist
