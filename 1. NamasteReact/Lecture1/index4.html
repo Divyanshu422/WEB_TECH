@@ -1,0 +1,40 @@
+<!-- It is not the good practice to add the react code in the html file under script tag.
+     So we will create a new file 'App4.js' which will contains the react code.
+     To link the App4.js with the index4.html we will use the Script tag: src attribute.
+     -->
+
+<!--  the element created using the react -> has been provided  id. we will be using this id of 
+    the element to give the styling  -->
+
+<!--  So there are 3 file in this project: 
+                            1. index4.html
+                            2. index4.css
+                            3. App4.js -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--  Linking the css file -->
+    <link rel="stylesheet" href="./index4.css" />
+  </head>
+  <body>
+    <!--  Creating the root element of html where the react code is rendered -->
+    <div id="root"></div>
+
+    <!-- ! Importing the react and reactDom with CDN -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!-- !  React code: Written in the script tag -->
+    <script src="APP4.js"></script>
+  </body>
+</html>
