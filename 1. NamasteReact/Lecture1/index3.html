@@ -1,0 +1,37 @@
+<!-- In the previous sheet (index.html) we added the react into our project using CDN.
+    Now we need to populate the html page with the react -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--  Creating the root element of html where the react code is rendered -->
+    <div id="root"></div>
+
+    <!-- ! Importing the react and reactDom with CDN -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!-- !  React code: Written in the script tag -->
+    <script>
+      // ! Creating the element of react using -> React.createElement() which takes 3 parameters
+      const heading = React.createElement("h1", {}, "Hello world from React");
+
+      // getting the root element of html using -> ReactDOM
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      // rendering the react element into the root element
+      root.render(heading);
+    </script>
+  </body>
+</html>
