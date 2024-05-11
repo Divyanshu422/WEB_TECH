@@ -1,0 +1,28 @@
+<!--!The developer want to populate the webpage with the hello world. but
+     with the help of the javaScript.
+    
+    Ans: so we want to add the element into the webpage using JS. for that
+         we need to create a root element of html and append the root
+         element with the JS code.-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+  </head>
+  <body>
+    <!-- Creating the root element -->
+    <div id="root"></div>
+
+    <!-- ! Adding the js code -->
+    <script>
+      // Creating the element -> the add the data to the element using InnerHTML or innertext
+      const heading = document.createElement("h1");
+      heading.innerHTML = "Hello World";
+      const root = document.getElementById("root");
+      root.appendChild(heading);
+    </script>
+  </body>
+</html>
