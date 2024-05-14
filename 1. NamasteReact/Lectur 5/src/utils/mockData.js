@@ -1,5 +1,5 @@
  //  Creating a object:
- const resList = [
+ let resList = [
     {
         resName: 'KFC',
         cuisine: ["Burgers", "Biryani", "American", "FastFood"],
