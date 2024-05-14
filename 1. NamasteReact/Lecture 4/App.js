@@ -126,13 +126,13 @@ const Body = () =>{
                 {/*  Passing the prop to the RestaurantCars and passing the data */}
                 {/* <RestaurantCard resData = {resList[0]}/> */}
                 {/* using the map function to render the UI for all the data => with out return */}
+
+
                 {
-                    resList.map((data) => (
-                            <RestaurantCard resData = {data} />
+                    resList.map((data,index) => (
+                            <RestaurantCard key={index} resData = {data} />
                     ))
                 }
-
-
 
 
                 {/* Or using map with return */}
