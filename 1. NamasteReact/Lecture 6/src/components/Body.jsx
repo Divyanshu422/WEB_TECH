@@ -4,23 +4,33 @@ import RestaurantCard from './RestaurantCard'
 import resList from '../utils/MockData'
 
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const Body = () =>{
 
-    const [data, setData] = useState(resList);
+    const [data, setData] = useState([])
 
-        //  providing the inline styling => creating the object. this object is passed to the jsx as shown
+    useEffect(()=>{
+        // Calling the function for fetching data
+        fetchData();
+    },[]);
+
+   const fetchData = async () => {
+    // Fetching the data from the API
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5489889&lng=77.2887429&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        // Converting the data into JSON format
+        const jsonData = await data.json();
+        console.log(jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        setData(jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+   }
+    
     const style = {
         padding: '10px',
     }
 
     function changeHandler (e){
-        //    this is the function which is called when the button is clicked
-        console.log(resList);
-        // ! In React we cant change the state of variable directly assigning it new value
-        // resList = resList.filter((rest) => rest.rating>4);
-        const FilterList = resList.filter((rest) => rest.rating>4)
+        // console.log(resList);
+        const FilterList = data.filter((rest) => rest.info.avgRating>4)
         setData(FilterList);
     }
 
@@ -33,7 +43,9 @@ const Body = () =>{
             <div className="res-container">
                 {
                     data.map((data,index) => (
-                            <RestaurantCard key={index} resData = {data} />
+                   
+                            <RestaurantCard key={index} resData = {data.info} />
+                        
                     ))
                 }
             </div>
@@ -42,3 +54,11 @@ const Body = () =>{
 
 } 
 export default Body;
+
+
+
+
+
+
+
+
