@@ -10,3 +10,8 @@
 6. Create the root element in the html file: `<div id="root"></div>`
 
 7. import the react and react-dom libraries into the app.js file
+
+
+# lecture 7:
+1. install the dependency for routing `npm i react-router-dom`
+
