@@ -1,10 +1,9 @@
 // Creating the body component:
 
 import RestaurantCard from './RestaurantCard'
-import resList from '../utils/MockData'
-
-
+// import resList from '../utils/MockData' . =>Since we are making an api call and setting the data to the State variable on which the Component is mapped so we no longer need it
 import { useState, useEffect } from 'react'
+import Shimmer from './Shimmer';
 
 const Body = () =>{
 
@@ -27,8 +26,8 @@ const Body = () =>{
           const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5489889&lng=77.2887429&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         // Converting the data into JSON format
         const jsonData = await data.json();
-        console.log(jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-        setData(jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+            //! Using optional chaining
+        setData(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
    }
     
     const style = {
@@ -42,7 +41,17 @@ const Body = () =>{
     }
 
 
-    return(
+    //  Loading Spinner => this is known as conditional rendering
+    // if (data.length == 0){
+    //     return <h1>Loading...</h1>;
+    // }
+
+    // Using Shimmer component: => implemented using terinary operator in js
+    // if (data.length == 0){
+    //         return <Shimmer/>;
+    //     }
+
+    return data.length == 0? <Shimmer/> : (
         <div className="body">
             <div>
                 <button className="filter-btn" onClick={changeHandler} >Top rated Restaurant</button>
@@ -69,3 +78,8 @@ export default Body;
 
 
 
+
+
+
+
+ 
