@@ -8,6 +8,7 @@ import Shimmer from './Shimmer';
 const Body = () =>{
 
     const [data, setData] = useState([]);
+    const [filterData, setFilterData] = useState([]);
 
     useEffect(()=>{
         // Calling the function for fetching data
@@ -28,6 +29,7 @@ const Body = () =>{
         const jsonData = await data.json();
             //! Using optional chaining
         setData(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilterData(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
    }
     
     const style = {
@@ -51,14 +53,31 @@ const Body = () =>{
     //         return <Shimmer/>;
     //     }
 
+    const [searchText, setSearchText] = useState(''); 
+    function searchHandler(e){
+        setFilterData(data)
+        console.log(data[0]?.info);
+        // ! Includes method
+        const FilterData = data.filter((filteredData =>(filteredData.info.name.toLowerCase().includes(searchText.toLowerCase()))));
+        console.log(FilterData);
+        setFilterData(FilterData);
+        
+    }
+
     return data.length == 0? <Shimmer/> : (
         <div className="body">
-            <div>
-                <button className="filter-btn" onClick={changeHandler} >Top rated Restaurant</button>
+            <div className='filter'>
+                <div className='search'>
+                    <input type="text" className="search-box" value ={searchText} onChange = {(e)=> (setSearchText(e.target.value))}/>
+                    <button className="search-btn" onClick ={searchHandler}>Search</button>
+                </div>
+                <div>
+                    <button className="filter-btn" onClick={changeHandler} >Top rated Restaurant</button>
+                </div>
             </div>
             <div className="res-container">
                 {
-                    data.map((data,index) => (
+                    filterData.map((data,index) => (
                    
                             <RestaurantCard key={index} resData = {data.info} />
                         

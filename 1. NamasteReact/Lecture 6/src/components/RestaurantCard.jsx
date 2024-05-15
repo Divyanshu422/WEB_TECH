@@ -9,7 +9,7 @@ import {CDN_URL} from '../utils/constants'
         // console.log(props);     // it will be object
     
         const {resData} = props;            // Destructuring the data
-        console.log(resData);
+        // console.log(resData);
         // const {name, cloudinaryImageId} = resData;
         const {name, cuisines, avgRating,costForTwo, cloudinaryImageId } = resData;          
         return(

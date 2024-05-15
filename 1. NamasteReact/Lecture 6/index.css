@@ -48,8 +48,8 @@
 }
 
 .filter-btn {
-  padding: 10px;
   cursor: pointer;
+  margin-left: 10px;
 }
 .shimmer-container {
   display: flex;
@@ -83,4 +83,9 @@
   padding: 0 10px;
   margin: 0 30px;
   cursor: pointer;
+}
+
+.filter {
+  display: flex;
+  padding: 10px;
 }
