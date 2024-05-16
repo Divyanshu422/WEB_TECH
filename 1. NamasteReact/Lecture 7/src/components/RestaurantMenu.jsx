@@ -19,7 +19,7 @@ function RestaurantMenu() {
   //  making an api call 
   const fetchMenu = async () => {
 
-    const data = await fetch(MenuApi});
+    const data = await fetch({MenuApi});
     const menu = await data.json();
     console.log(menu?.data?.cards[4].groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
       setResData(menu?.data?.cards[2]?.card?.card?.info);
