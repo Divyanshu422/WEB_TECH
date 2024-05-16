@@ -26,7 +26,7 @@ import { Link } from 'react-router-dom';
                     <li>
                         <Link to='/contact'>Contact US </Link>
                     </li>
-                    <li>Cart</li>
+                    <li>Car t</li>
                    <button className ='login' onClick={clickHandler}>{isLoggedIn}</button>
                 </ul>
             </div>
