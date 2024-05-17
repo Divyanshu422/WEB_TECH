@@ -8,15 +8,20 @@ function UserProfileCard({ user }) {
   };
 
   return (
-    <div className='flex items-center gap-3 pr-3'>
+    <div className="bg-white shadow-md rounded-lg p-4 flex max-h-32items-center gap-4">
       <div>
-        <img src={user.img} className='w-14 h-14 rounded-full m-4' />
+        <img src={user.img} className="w-16 h-16 rounded-full" />
       </div>
-      <div className='flex flex-col justify-center flex-grow p-3'>
-        <p className='text-xl font-extrabold'>{user?.username}</p>
-        <p className='p-1 text-center text-sm'>{user.email}</p>
+      <div className="flex-1 ">
+        <h3 className="text-lg font-bold mb-1">{user?.username}</h3>
+        <p className="text-gray-500 text-sm">{user.email}</p>
       </div>
-      <button className='bg-blue-950 text-white p-3 rounded-[8px] hover:bg-slate-500'>Click Here</button>
+      <button
+        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg"
+        onClick={handleClick}
+      >
+        Click Here
+      </button>
     </div>
   );
 }

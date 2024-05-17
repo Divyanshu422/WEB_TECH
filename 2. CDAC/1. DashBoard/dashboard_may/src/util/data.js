@@ -1,11 +1,11 @@
 export const UserProfileData = [
-    // {
-    //   id: 1,
-    //   img: "https://images.pexels.com/photos/8405873/pexels-photo-8405873.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    //   username: "Elva McDonald",
-    //   email: "elva@gmail.com",
-    //   amount: "3.668",
-    // },
+    {
+      id: 1,
+      img: "https://images.pexels.com/photos/8405873/pexels-photo-8405873.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
+      username: "Elva McDonald",
+      email: "elva@gmail.com",
+      amount: "3.668",
+    },
     {
       id: 2,
       img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600",
