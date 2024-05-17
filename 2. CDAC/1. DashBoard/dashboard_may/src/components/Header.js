@@ -3,21 +3,44 @@ import { Link } from 'react-router-dom';
 import { FiSearch } from 'react-icons/fi';
 import { IoMdNotificationsOutline, IoMdInformationCircleOutline } from 'react-icons/io';
 import { RiMoonFill, RiSunFill } from 'react-icons/ri';
+import { motion } from "framer-motion"
+
+
+const defaultAnimations = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+  },
+};
 
 function Header() {
   const [darkmode, setDarkmode] = useState(false);
-
+  const [displayData, setDisplayData] = useState('Hi Admin');
+  const [displayData1, setDisplayData1] = useState('Welcome to CDAC Dashboard');
   return (
+
     <nav className="sticky top-4 z-40 flex  items-center justify-between rounded-xl bg-white p-2 ml-4 backdrop-blur-xl dark:bg-[#0b14374d]">
       <div className="ml-[6px]">
         <p className="text-[33px] capitalize text-stone-950">
           <Link to="#" className="font-bold capitalize hover:text-black hover:scale-105 transition duration-300 ease-in-out">
             <div className='text-sm'>
-                Hi, Admin
+              Hello Admin
             </div>
-            <div>
-                Welcome to CDAC Dashboard
-            </div>      
+            <motion.div className='text-3xl'
+              initial='hidden'
+              animate='show'
+              transition={{ staggerChildren: 0.1, duration:3 }}>
+                {displayData1.split('').map((char, index) => {
+                        return (
+                            <motion.span key={index} variants={defaultAnimations} >
+                            {char}
+                            </motion.span>
+                        );
+                        })}
+                
+            </motion.div>
           </Link>
         </p>
       </div>

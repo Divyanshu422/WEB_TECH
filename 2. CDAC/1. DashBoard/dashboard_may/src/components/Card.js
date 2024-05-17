@@ -55,7 +55,7 @@ const Card = () => {
     <div>
       <div className='flex gap-10 ml-10 mt-10'>
           {data.map((item, index) => (
-            <div key={index} className='bg-violet-950 flex gap-x-5 items-center rounded-lg hover:cursor-pointer hover:bg-slate-800' 
+            <div key={index} className='bg-blue-900 flex gap-x-5 items-center rounded-lg hover:cursor-pointer hover:bg-slate-800' 
             onMouseEnter={(e) => e.currentTarget.style.transform = hoverEffect.transform} 
             onMouseLeave={(e) => e.currentTarget.style.transform = ''}>
                <div className='ml-8 border rounded-full bg-slate-300 '>

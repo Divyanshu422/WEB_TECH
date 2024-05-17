@@ -1,7 +1,7 @@
 import React from 'react'
 import Message from '../components/Message';
 import LoginForm from '../components/LoginForm';
-import Footer from '../components/Footer';
+
 
 function Signup() {
     let data = {
