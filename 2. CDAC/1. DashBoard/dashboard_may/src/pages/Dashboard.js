@@ -3,6 +3,7 @@ import Card from '../components/Card'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Charts from '../components/Charts'
 
 function Dashboard({isLoggedIn}) {
   return (
@@ -15,6 +16,9 @@ function Dashboard({isLoggedIn}) {
               </div>
               <div >
                 <Card/>
+              </div>
+              <div>
+                <Charts/>
               </div>
               <div className='fixed bottom-0 w-full'>
                 <Footer />

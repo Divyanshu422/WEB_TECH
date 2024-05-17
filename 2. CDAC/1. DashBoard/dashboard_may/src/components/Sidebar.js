@@ -65,7 +65,7 @@ export default function Sidebar() {
       <>
         <div>
             <div className='flex h-screen'>
-                <div className={`bg-gradient-to-b from-white to-blue-950 h-screen p-5 pt-8 ${open?"w-72":"w-20"} relative transition-all duration-500`}>
+                <div className={`bg-gradient-to-b from-white to-blue-500 h-screen p-5 pt-8 ${open?"w-72":"w-20"} relative transition-all duration-500`}>
                     <BsArrowLeftShort className={`bg-white text-3xl rounded-full absolute -right-4 border border-blue-800 top-9 cursor-pointer ${!open && "rotate-180"}`} onClick={()=> setOpen(!open)}/>
             
                     <img src={Img} alt="Image not available" className='rounded-full px-2 w-18 h-18' />
