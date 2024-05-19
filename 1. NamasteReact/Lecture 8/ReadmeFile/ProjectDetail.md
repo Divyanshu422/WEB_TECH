@@ -11,7 +11,8 @@
 
 7. import the react and react-dom libraries into the app.js file
 
-
 # lecture 7:
+
 1. install the dependency for routing `npm i react-router-dom`
 
+# lecture 8: Class Based component

@@ -7,6 +7,7 @@ import Error from "./components/Error";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Contact  from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
+// import Parent from './dELETE/Parent'
 
 
 const AppLayout = () => {
@@ -50,6 +51,7 @@ const AppLayout = () => {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<RouterProvider router={appRouter}/>);
+// root.render(<Parent/>)
 
 
 
