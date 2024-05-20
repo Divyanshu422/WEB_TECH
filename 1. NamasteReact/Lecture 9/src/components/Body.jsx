@@ -3,6 +3,7 @@
 import RestaurantCard from './RestaurantCard'
 import { useState, useEffect } from 'react'
 import Shimmer from './Shimmer';
+import useOnlineStatus from '../utils/UserHook/useOnlineStatus';
 
 const Body = () =>{
     const [searchText, setSearchText] = useState(''); 
@@ -35,11 +36,17 @@ const Body = () =>{
         setFilterData(FilterData);      
     }
 
+    console.log('body');
+
+    const onlineStatus = useOnlineStatus();
+
+    if (onlineStatus == false) return <h1>U ARE OFF LINE CODE </h1>
+
     return  filterData && filterData.length === 0? <Shimmer/> : (
         <div className="body">
             <div className='filter'>
                 <div className='search'>
-                    <input type="text" className="search-box" value ={searchText} onChange = {(e)=> (setSearchText(e.target.value))}/>
+                    <input type="text" className="search-box" value ={searchText} onChange = {(e)=> (setSearchText(e.target.value))}/>s
                     <button className="search-btn" onClick ={searchHandler}>Search</button>
                 </div>
                 <div>

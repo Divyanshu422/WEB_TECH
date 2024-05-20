@@ -1,4 +1,4 @@
-import React from "react";
+import React, {lazy} from "react";
 import ReactDOM from'react-dom/client';   
 import Header from './components/Header'
 import Body from './components/Body'
@@ -9,6 +9,10 @@ import Contact  from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 // import Parent from './dELETE/Parent'
 
+
+// Lazy loading
+
+const Grocery = lazy(()=> import ('./components/Grocery'))
 
 const AppLayout = () => {
     return (
@@ -41,7 +45,11 @@ const AppLayout = () => {
                             path:'/restaurant/:resId',
                             element: <RestaurantMenu/>,
                     
-                        }      
+                        },   
+                        {
+                            path: '/grocery',
+                            element: <Grocery/>
+                        }   
                     ],
                     errorElement: <Error/>,
                 }

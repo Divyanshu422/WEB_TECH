@@ -1,6 +1,7 @@
  import {LOGO_URL} from '../utils/constants'
  import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useOnlineStatus from '../utils/UserHook/useOnlineStatus';
  const Header = () =>{
     const [isLoggedIn, setLoggedIn] = useState('Login');
 
@@ -8,6 +9,7 @@ import { Link } from 'react-router-dom';
         isLoggedIn == 'Login'? setLoggedIn('LogOut') : setLoggedIn('Login');
     }
 
+    const onlineStatus = useOnlineStatus();
     return(
         <div className="header">
             {/* Logo */}
@@ -18,6 +20,11 @@ import { Link } from 'react-router-dom';
             <div>
                 <ul className="nav-items">
                     <li>
+                        <Link to='/'> online Status:
+                        {onlineStatus? ('✔ ' ) : ('🔴')}
+                        </Link>
+                    </li>
+                    <li>
                         <Link to='/'>Home </Link>
                     </li>
                     <li>  
@@ -25,6 +32,9 @@ import { Link } from 'react-router-dom';
                     </li>
                     <li>
                         <Link to='/contact'>Contact US </Link>
+                    </li>
+                    <li>
+                        <Link to='/grocery'>Grocery </Link>
                     </li>
                     <li>Cart</li>
                    <button className ='login' onClick={clickHandler}>{isLoggedIn}</button>
