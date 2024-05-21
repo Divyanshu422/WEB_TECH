@@ -28,19 +28,28 @@ class UserClass extends React.Component{
     //* Using the componentDidMount() function to fetch the data => therefore the function is made asynchronous
    async componentDidMount(){
     //  Fetching the data
-
+        console.log('component did Mount called')
         const data = await fetch('https://api.github.com/users/mojombo');
         const jsonData = await data.json();
         console.log(jsonData);
         this.setState({
             userInfo:{
                 name: jsonData.login,
-                location: jsonData.location,
+                location : jsonData.location,
                 contact: jsonData.company,
                 image: jsonData.avatar_url,
             }
         })
 
+   }
+
+
+   componentDidUpdate(){
+    console.log('component did update called')
+   }
+
+   componentWillUnmount(){
+    console.log('component will unmount called')
    }
 
     render(){
