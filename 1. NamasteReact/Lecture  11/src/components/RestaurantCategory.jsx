@@ -6,7 +6,7 @@ function RestaurantCategory({data}) {
     // console.log(data);
 
   return (
-    <div className='w-9/12 mx-auto my-4 shadow-lg rounded-md'> 
+    <div className='w-6/12 mx-auto my-4 shadow-lg rounded-md'> 
         {/* Creating the according header */}
         <div className='flex justify-between mx-4'>
             <span className='font-bold text-2xl text-left px-2 py-2 '>{data?.title} ({data?.itemCards.length})</span>
