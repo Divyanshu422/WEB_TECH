@@ -37,6 +37,7 @@ import { MenuApi } from "../constants";
 const useRestaurantMenu = () => {
   const [resData, setResData] = useState([]);
   const [menuList, setMenuList] = useState([]);
+  // const [data1, setData1] = useState([]);
 
   useEffect(() => {
     fetchMenu();
@@ -45,9 +46,10 @@ const useRestaurantMenu = () => {
   const fetchMenu = async () => {
     const data = await fetch(MenuApi);
     const menu = await data.json();
-    setResData(menu?.data?.cards[2]?.card?.card?.info);
-    console.log(menu);
-    setMenuList(menu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
+    
+    setResData(menu?.data?.cards[2]?.card?.card?.info.name);
+    setMenuList(menu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards);
+    // setData1(menu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards);
   };
 
   return [menuList, resData];
