@@ -18,3 +18,5 @@
 - To access the `.env` data, we have a method => `process.env`
 
 ![Image for accessing the .env](../Images/README_Images/2.png)
+
+5. for the spinner => get code form the `Css loader generator`
