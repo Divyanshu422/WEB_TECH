@@ -5,7 +5,8 @@
   ![Axios](../Images/README_Images/1.png)
 
 - To make axios call => we need to use `axios.get(URL)`
--
+
+  ![Axios](../Images/README_Images/3.png)
 
 2. Install the `tailwind plugin`
 
