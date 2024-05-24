@@ -2,7 +2,7 @@ import React from 'react'
 import { CDN_URL } from '../utils/constants'
 
 function ItemList({ data }) {
-    console.log(data)
+    // console.log(data)
   return (
     <div className='space-y-4 px-8'>
       {data.map((item) => (

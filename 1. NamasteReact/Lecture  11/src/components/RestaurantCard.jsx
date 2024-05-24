@@ -28,7 +28,7 @@ const RestaurantCard = (props) => {
 
 export default RestaurantCard;
 
-export const HigherOrder = () => {
+export const HigherOrder = (RestaurantCard) => {
   // A HOC -> Returns the component
   return (props) => {
     // A component returns JSX
@@ -37,6 +37,7 @@ export const HigherOrder = () => {
         <label className="top-2 left-2 z-50 bg-orange-500 text-white rounded-lg px-2 py-1 font-bold">
           Promoted
         </label>
+        {/* <h1> thanks</h1> */}
         <RestaurantCard {...props} />
       </div>
     );
