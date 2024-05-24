@@ -4,7 +4,8 @@ import RestaurantCard, {HigherOrder} from './RestaurantCard'
 import { useState, useEffect } from 'react'
 import Shimmer from './Shimmer';
 import useOnlineStatus from '../utils/UserHook/useOnlineStatus';
-
+import { useContext } from 'react';
+import { UserContext } from '../utils/ContextAPI/UserContext';
 const Body = () =>{
     const [searchText, setSearchText] = useState(''); 
     const [data, setData] = useState([]);
@@ -13,6 +14,7 @@ const Body = () =>{
     //* Creating the component with HigherOrder components
     const EnchancedComponent = HigherOrder(RestaurantCard);
 
+    const {loggedInUser, setUserName } = useContext(UserContext);
 
     useEffect(()=>{
         fetchData();
@@ -58,6 +60,10 @@ const Body = () =>{
                 </div>
                 <div className=' p-2'>
                     <button className="px-4 py-1 rounded-lg bg-slate-300  hover:scale-105" onClick={changeHandler} >Top rated Restaurant</button>
+                </div>
+                <div className=' p-2'>
+                    <label>UserName: </label>
+                    <input type='text' value={loggedInUser} onChange={(e) => setUserName(e.target.value)}/>
                 </div>
             </div>
             <div className="flex flex-wrap">

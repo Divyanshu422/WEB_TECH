@@ -30,7 +30,7 @@ const AppLayout = () => {
     },[])
 
     return (
-        <UserContext.Provider value={{loggedInUser: userName}}>
+        <UserContext.Provider value={{loggedInUser: userName, setUserName }}>
             <div className="App">
                 <Header/>
                     {/* based on the path => we will change the body component */}
