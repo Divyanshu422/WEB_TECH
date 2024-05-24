@@ -1,28 +1,15 @@
 import React from 'react'
-import { useState, useEffect } from'react'
-import axios from 'axios';
+import { useState  } from'react'
+// import axios from 'axios';
 import Spinner from '../spinner/Spinner.js';
+import useGIF from '../useHook/useGIF.js';
 
-const API_KEY = process.env.REACT_APP_GIPHY_API_KEY;
 function Tags() {
-    const [gif, setGif] = useState('');
-    const [loading, setLoading] = useState('false');
+  
     const [tag, setTag] = useState('');
-    
 
-    //* Making the ApI in the useEffect:
-    useEffect(()=>{
-        fetchData();
-    },[])
-
-    async function fetchData() {
-        setLoading(true);
-        const url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${tag}`;
-        const response = await axios.get(url);
-        console.log(response?.data?.data);
-        setGif(response?.data?.data?.images?.downsized?.url);
-        setLoading(false)
-    }
+    //* passing the tag to the useGif function 
+    const {gif, loading, fetchData} = useGIF(tag);
    
 
     function gifHandler() {
