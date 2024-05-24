@@ -34,7 +34,7 @@ function Tags() {
     }
   return (
     <div className='flex flex-col bg-blue-500 border-[1px] border-black py-10 w-8/12 mx-auto items-center rounded-2xl gap-y-10'>
-        <h1 className='text-2xl font-bold text-center uppercase'> Random Gif </h1>
+        <h1 className='text-2xl font-bold text-center uppercase'> Random {tag} Gif </h1>
         {
         (loading)? (<Spinner/>):(<img src={gif} alt="" className='w-[450px] h-[350px]'/>)
         }
