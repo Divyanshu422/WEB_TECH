@@ -48,7 +48,7 @@ import { UserContext } from '../utils/ContextAPI/UserContext';
                         <Link to='/grocery'>Grocery </Link>
                     </li>
                     <li>Cart</li>
-                   <button className ='login' onClick={clickHandler}>{isLoggedIn}</button>
+                   <button className ='login' onClick={clickHandler}>{loggedInUser}</button>
                 </ul>
             </div>
         </div>

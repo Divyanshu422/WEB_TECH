@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useState, useEffect} from "react";
 import ReactDOM from'react-dom/client';   
 import Header from './components/Header'
 import Body from './components/Body'
@@ -10,18 +10,34 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
 // import Parent from './dELETE/Parent'
 
-
 // Lazy loading
 
 const Grocery = lazy(()=> import ('./components/Grocery'))
 
+
+import { UserContext } from "./utils/ContextAPI/UserContext";
+
 const AppLayout = () => {
+
+    const [userName, setUserName] = useState('');
+    useEffect(() => {
+        //Making the API call and setting the data 
+        const data = {
+            name: 'Divyanshu'
+        }
+        // Setting the data:
+        setUserName(data.name);
+    },[])
+
     return (
-        <div className="App">
-            <Header/>
-            {/* based on the path => we will change the body component */}
-           <Outlet/>
-        </div>
+        <UserContext.Provider value={{loggedInUser: userName}}>
+            <div className="App">
+                <Header/>
+                    {/* based on the path => we will change the body component */}
+                <Outlet/>
+            </div>
+        </UserContext.Provider>
+        
     )
 }
 
