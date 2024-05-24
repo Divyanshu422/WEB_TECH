@@ -12,6 +12,8 @@ const Body = () =>{
 
     //* Creating the component with HigherOrder components
     const EnchancedComponent = HigherOrder(RestaurantCard);
+
+
     useEffect(()=>{
         fetchData();
     },[]);
@@ -19,8 +21,8 @@ const Body = () =>{
     const fetchData = async () =>{
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5489889&lng=77.2887429&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const jsonData = await data.json();
-        console.log(jsonData);
-        console.log(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        // console.log(jsonData);
+        // console.log(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setData(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilterData(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
    }

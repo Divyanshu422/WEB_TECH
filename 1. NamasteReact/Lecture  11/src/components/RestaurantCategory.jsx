@@ -5,7 +5,7 @@ import ItemList from './ItemList';
 function RestaurantCategory({ data }) {
     const [show, setShow] = useState(false);
 
-    // console.log(data);
+    // console.log(data1);
     const handleclick = () => {
         setShow(!show);
     };
@@ -17,7 +17,7 @@ function RestaurantCategory({ data }) {
                 <span onClick={handleclick} className='hover:cursor-pointer'> <MdArrowDropDownCircle className='w-6 h-6'/> </span>
             </div>
             <div className={`overflow-hidden transition-all duration-500 ease-in-out ${show ? 'max-h-screen' : 'max-h-0'}`}>
-                {show && <ItemList data={data.itemCards} />}
+                {show && <ItemList data={data.itemCards}/>}
             </div>
         </div>
     );

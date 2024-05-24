@@ -8,7 +8,6 @@ function RestaurantMenu() {
   const { resId } = useParams();
   const [menuList, resData] = useRestaurantMenu();
 
-  console.log(menuList);
 
 
   const category = menuList.filter((item)=> (item?.card?.card?.['@type']=='type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'))
@@ -24,7 +23,7 @@ function RestaurantMenu() {
       {
         category.map((items, index)=>(
               
-            <RestaurantCategory key={index} data = {items?.card?.card}/>
+            <RestaurantCategory key={index} data = {items?.card?.card} />
         ))
       }
       

@@ -1,8 +1,20 @@
- import {LOGO_URL} from '../utils/constants'
- import { useState } from 'react';
+import {LOGO_URL} from '../utils/constants'
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/UserHook/useOnlineStatus';
+
+
+import { useContext } from 'react';
+import { UserContext } from '../utils/ContextAPI/UserContext';
+
+
+
  const Header = () =>{
+   
+    const {loggedInUser} = useContext(UserContext);
+    console.log(loggedInUser );
+
+
     const [isLoggedIn, setLoggedIn] = useState('Login');
 
     function clickHandler(e){
