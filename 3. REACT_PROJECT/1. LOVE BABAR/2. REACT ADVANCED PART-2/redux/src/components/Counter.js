@@ -8,15 +8,17 @@ const Counter = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className=' flex gap-x-10 items-center justify-center h-screen bg-slate-100'>
+    <div className="wrapper flex flex-col justify-center items-center bg-[#0f172a] text-[#e5e7eb] w-screen h-screen
+    gap-7 font-bold text-2xl"
+    >
       {/* Increment and decrement button + count display */}
-      <button className='bg-slate-500 p-10 shadow-2xl rounded text-white text-center text-4xl font-extrabold' onClick={()=>dispatch(increment())}>
+      <button className="border border-white rounded-xl w-[160px] h-[60px] flex items-center justify-center hover:bg-[#1d8abc] transition-all" onClick={()=>dispatch(increment())}>
         Increment
       </button>
       
-      <div className='bg-slate-500 p-10 shadow-2xl rounded text-white text-center text-4xl font-extrabold'>{count}</div>
+      <div className="rounded-full w-[120px] h-[120px] border-2 flex items-center justify-center text-3xl">{count}</div>
 
-      <button className='bg-slate-500 p-10 shadow-2xl rounded text-white text-center text-4xl font-extrabold' onClick={()=>dispatch(decrement())}>
+      <button className="border border-white rounded-xl p-4  w-[160px] h-[60px] flex items-center justify-center hover:bg-[#1d8abc] transition-all" onClick={()=>dispatch(decrement())}>
         Decrement
       </button>
 
