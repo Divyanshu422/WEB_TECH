@@ -1,4 +1,4 @@
+# step 1: creating the slice and store:
 
-
-# step 1: creating the slice:
-- function used `createSlice()`
+- function used `createSlice()` => for slice
+- function used `configureStore()` => for store
