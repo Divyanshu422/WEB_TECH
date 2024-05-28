@@ -1,11 +1,11 @@
-import { Route, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 function App() {
   return (
-    <div>
-      <div >
+    <div className=''>
+      <div  className="bg-slate-900">
         <Navbar/>  
       </div>
       <Routes>
