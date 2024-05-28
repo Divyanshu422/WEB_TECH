@@ -17,5 +17,5 @@
   - 2.  CounterSlice.js (src/redux/slic) => where the slice is defined
   - 3.  store.js (src/redux) => where store is defined.
 - To provide the store to the application (Or to connect the store with react application) => The application is wrapped inside the Provider. (Provider is connecting link btw two).
-- to use the initial state value => `useSelector hook` is used which takes callBacl function
+- to use the initial state value => `useSelector hook` is used which takes callBack function
 - to use the reducer function which is exported in slice.js (using action creator) => `useDispatch hook` is used
