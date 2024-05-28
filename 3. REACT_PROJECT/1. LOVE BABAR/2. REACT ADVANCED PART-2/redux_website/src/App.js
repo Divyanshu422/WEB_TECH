@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 function App() {
+  // console.log('app called')
   return (
     <div className=''>
       <div  className="bg-slate-900">
