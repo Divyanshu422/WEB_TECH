@@ -5,10 +5,13 @@ import Blocked from '../Assets/Blocked.jpeg';
 import Modal from './cardData/Modal';
 import { useState } from 'react';
 import CountUp from 'react-countup';
+import { useContext } from 'react'
+import { DarkModeContext } from '../context/AppContext'
 
 const Card = () => {
   // const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const data = [
     {
       id:1,
@@ -53,9 +56,15 @@ const Card = () => {
 
   return (
     <div>
-      <div className='flex gap-10 ml-10 mt-10'>
+      <div className={`flex  gap-10 ml-10 mt-10 ${
+      darkMode
+        ? 'bg-gray-900 text-white'
+        : 'bg-white dark:text-white'
+    }`}>
           {data.map((item, index) => (
-            <div key={index} className='bg-blue-900 flex gap-x-5 items-center rounded-lg hover:cursor-pointer hover:bg-slate-600' 
+            <div key={index} className={` flex gap-x-5 items-center rounded-lg hover:cursor-pointer  ${
+              darkMode? ('bg-gray-800 text-white hover:bg-slate-700' ):('bg-blue-900 hover:bg-slate-800')
+            } `}
             onMouseEnter={(e) => e.currentTarget.style.transform = hoverEffect.transform} 
             onMouseLeave={(e) => e.currentTarget.style.transform = ''}>
                <div className='ml-8 border rounded-full bg-slate-300 '>

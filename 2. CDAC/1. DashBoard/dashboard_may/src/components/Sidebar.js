@@ -8,7 +8,8 @@ import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { BsChevronDown } from "react-icons/bs";
 import { RxDashboard } from "react-icons/rx";
 import { IoIosLogOut } from "react-icons/io";
-
+import { useContext } from 'react';
+import { DarkModeContext } from '../context/AppContext';
 
 
 // Creating the menu array
@@ -53,6 +54,8 @@ export default function Sidebar() {
     const [open, setOpen] = useState(true);
     const [submenuOpen, setSubmenuOpen] = useState(Array(Menus.length).fill(false)); // Array to track open/close state of each submenu
     const [activeIndex, setActiveIndex] =useState(0);
+    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+    
 
     // Function to toggle the open/close state of a submenu
     const toggleSubmenu = (index) => {
@@ -65,8 +68,18 @@ export default function Sidebar() {
       <>
         <div>
             <div className='flex h-screen'>
-                <div className={`bg-gradient-to-b from-white to-blue-500 h-screen p-5 pt-8 ${open?"w-72":"w-20"} relative transition-all duration-500`}>
-                    <BsArrowLeftShort className={`bg-white text-3xl rounded-full absolute -right-4 border border-blue-800 top-9 cursor-pointer ${!open && "rotate-180"}`} onClick={()=> setOpen(!open)}/>
+                <div className={` h-screen p-5 pt-8 ${open?"w-72":"w-20"} relative transition-all duration-500 ${
+                darkMode
+                  ? 'bg-gray-900 text-white border-r'
+                  : 'bg-gradient-to-b from-white to-blue-500 dark:text-white'
+                }
+                `}>
+                    <BsArrowLeftShort className={` text-3xl rounded-full absolute -right-4 border border-blue-800 top-9 cursor-pointer ${!open && "rotate-180"}
+                    ${darkMode
+                    ? 'bg-gray-800 text-white border-white'
+                    : 'bg-white dark:text-white'
+                  }
+                    `} onClick={()=> setOpen(!open)}/>
             
                     <img src={Img} alt="Image not available" className='rounded-full px-2 w-18 h-18' />
                     <h1 className={`font-medium text-5xl p-5 pt-8 duration-300 items-centerjustify-center ${!open && "scale-0"}`}> Admin</h1>
