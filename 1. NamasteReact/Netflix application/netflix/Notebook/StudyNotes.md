@@ -4,3 +4,5 @@
 - To create a react component: `rafce` : this stands for `react arrow function component export`
 
   ![ReferenceImage](../Images/ReadMeImages/1.png)
+
+- While creating the application, if our application requires form => then we can use `Formik library` in react. (Lecture 14: 1hour 22 minutes)
