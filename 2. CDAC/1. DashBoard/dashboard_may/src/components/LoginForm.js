@@ -1,19 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { checkValidataSignIn } from '../util/validate';
 
 function LoginForm() {
    
     const navigate = useNavigate();
+    const emailRef = useRef(null);
+    const passwordRef = useRef(null);
+    const captchaRef = useRef(null);
 
+    const [showError, setShowError] = useState('');
   const [accountType, setAccountType] = useState("student");
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    captcha:''
+    email: "",
+    password: "",
+    captcha: ""
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -27,10 +32,11 @@ function LoginForm() {
 
   function submitHandler(event) {
     event.preventDefault();
+    const result = checkValidataSignIn(emailRef.current.value, passwordRef.current.value);
+    setShowError(result);
+    console.log(emailRef);
     toast.success('Logged In');
-    console.log('Printing the formData ');
-    console.log(formData);
-    navigate('/dashboard');
+    // navigate('/dashboard');
   }
 
   function forgotHandler() {
@@ -79,6 +85,7 @@ function LoginForm() {
                             type="email"
                             value={formData.email}
                             onChange={changeHandler}
+                            ref={emailRef}
                             placeholder="Enter email address"
                             name="email"
                             className="bg-white rounded-[0.5rem] text-black w-full p-[12px]"
@@ -95,6 +102,7 @@ function LoginForm() {
                             type={showPassword ? 'text' : 'password'}
                             value={formData.password}
                             onChange={changeHandler}
+                            ref={ passwordRef}
                             placeholder="Enter Password"
                             name="password"
                             className="bg-white rounded-[0.5rem] text-black w-full p-[12px]"
@@ -115,6 +123,8 @@ function LoginForm() {
                     
 
                     </label>
+
+                    <p className='text-red-500'>{showError}</p>
 
                     {/* <label className="w-full">
                         <p className="text-xl text-richblack-5 mb-4 font-bold  leading-[1.375rem]">
