@@ -1,3 +1,13 @@
+# About project: 
+- In this project we have create a body.js in which we have defined the routing.
+- this body component is called in the app.js
+
+
+
+
+
+
+
 # Setup:
 
 - Install the `Tailwind`

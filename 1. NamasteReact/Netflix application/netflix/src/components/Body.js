@@ -1,6 +1,6 @@
 import React from 'react'
 import Login  from './loginComponent/Login'
-import Browse from './Browse'
+import Browse from './Browse/Browse'
 import {
     createBrowserRouter,
     RouterProvider,
