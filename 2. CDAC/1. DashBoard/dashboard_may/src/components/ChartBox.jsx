@@ -7,8 +7,8 @@ function ChartBox() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   return (
-    <div className={`border-2 p-4 rounded-lg ${darkMode ? 'bg-gray-800 text-white' : 'bg-white'}`}>
-      <h1 className='text-2xl font-bold p-2'>{darkMode ? 'Registered User (Dark Mode)' : 'Registered User'}</h1>
+    <div className={`border-2  p-4 rounded-lg ${darkMode ? 'bg-[#1D1F25] text-white border-[#414C59]' : 'bg-white'}`}>
+      <h1 className='text-2xl font-bold p-2'>{darkMode ? 'Registered User' : 'Registered User'}</h1>
       <div>
         <AreaChart 
           width={730} 

@@ -70,7 +70,7 @@ export default function Sidebar() {
             <div className='flex h-screen'>
                 <div className={` h-screen p-5 pt-8 ${open?"w-72":"w-20"} relative transition-all duration-500 ${
                 darkMode
-                  ? 'bg-gray-900 text-white border-r'
+                  ? 'bg-[#1D1F25] text-white '
                   : 'bg-gradient-to-b from-white to-blue-500 dark:text-white'
                 }
                 `}>

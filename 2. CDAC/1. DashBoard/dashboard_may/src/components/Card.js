@@ -58,12 +58,12 @@ const Card = () => {
     <div>
       <div className={`flex  gap-10 ml-10 mt-10 ${
       darkMode
-        ? 'bg-gray-900 text-white'
+        ? 'bg-[#040404] text-white'
         : 'bg-white dark:text-white'
     }`}>
           {data.map((item, index) => (
             <div key={index} className={` flex gap-x-5 items-center rounded-lg hover:cursor-pointer  ${
-              darkMode? ('bg-gray-800 text-white hover:bg-slate-700' ):('bg-blue-900 hover:bg-slate-800')
+              darkMode? ('bg-[#132242] text-white hover:bg-slate-700' ):('bg-blue-900 hover:bg-slate-800')
             } `}
             onMouseEnter={(e) => e.currentTarget.style.transform = hoverEffect.transform} 
             onMouseLeave={(e) => e.currentTarget.style.transform = ''}>

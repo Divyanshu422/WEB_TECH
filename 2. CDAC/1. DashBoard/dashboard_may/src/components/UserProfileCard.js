@@ -18,7 +18,7 @@ function UserProfileCard({ user }) {
   return (
     <div className="m-4">
       <div
-        className={`neutral shadow-md rounded-lg p-4 flex  max-h-32 items-center gap-4 ${darkMode ? 'bg-slate-900 shadow-gray-900/50' : ''}`}
+        className={`neutral shadow-md rounded-lg p-4 flex  max-h-32 items-center gap-4 ${darkMode ? 'bg-[#1D1F25] shadow-gray-900/50' : ''}`}
       >
         <div>
           <img src={user.img} className="w-16 h-16 rounded-full" />
@@ -28,7 +28,7 @@ function UserProfileCard({ user }) {
           <p className="text-gray-500 text-sm">{user.email}</p>
         </div>
         <button
-          className={`bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-2 rounded-lg ${darkMode ? 'bg-slate-800' : 'bg-blue-500'}`}
+          className={`  text-white  hover:bg-blue-600 font-bold py-2 px-2 rounded-lg ${darkMode ? 'bg-slate-400 ]' : 'bg-blue-500  '}`}
           onClick={handleClick}
         >
           Click Here

@@ -13,13 +13,13 @@ function Dashboard({isLoggedIn}) {
     <div>
       <div className={`flex ${
       darkMode
-        ? 'bg-slate-700 text-neutral-300'
+        ? 'bg-[#040404] text-neutral-300'
         : 'bg-white dark:text-white'
       }`}>
            <Sidebar/>
            <div className={`flex-col w-screen ${
                 darkMode
-                  ? 'bg-gray-900 text-white'
+                  ? 'bg-[#040404] text-white'
                   : 'bg-white dark:text-white'
               }`}>
               <div className={``}>
