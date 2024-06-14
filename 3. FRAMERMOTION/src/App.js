@@ -1,12 +1,14 @@
 
+import React from 'react'
+import RotateName from './component/RotateName'
 
 
 function App() {
   return (
-    <div>
-    
-    </div>
-  );
+   <>
+    <RotateName/>
+   </>
+  )
 }
 
-export default App;
+export default App
