@@ -38,7 +38,6 @@ export default Variant;
     * we need to define the initial and animate property in the motion component.
     * 
     * 
-    * 
     * In the above code we have applied the transition object (Line 15) to the user defined variants not directly write the key
     * value pair value in the visible object. ()
 */
