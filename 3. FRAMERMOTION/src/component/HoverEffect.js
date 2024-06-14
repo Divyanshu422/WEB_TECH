@@ -12,6 +12,10 @@ function HoverEffect() {
                 color: '#C17060',
                 originX:0
             }}
+            transition ={{
+              type: 'spring',
+              stiffness: 600
+            }}
         >
             clickHere
         </motion.button>
@@ -23,6 +27,7 @@ function HoverEffect() {
 export default HoverEffect
 
 /* ! Hover effect
- *
- *
+ *  To provide the hover effect we need to use the 'whileHover' rather than using animate prop.
+ *  In the above code I have applied the transition => type as spring and the stiffness as 300. By using the stiffness the spring
+ *  will swing more. the ideal value of stiffness is  100.
 */
