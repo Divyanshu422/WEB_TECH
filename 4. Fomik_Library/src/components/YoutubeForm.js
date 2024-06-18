@@ -1,39 +1,38 @@
 import React from 'react'
 import { useFormik } from 'formik'
+
+const initialValue = {
+    name: '',
+    email: '', 
+    channel: ''
+}
+const onSubmit = values => {
+    console.log('Values are ', values);
+}
+const validatae = (values) => {
+    // keys of values object are values.name, values.email and values.channel
+    let errors = {};
+    if(!values.name){
+            errors.name = 'Required';
+    }
+    if(!values.email){
+        errors.name = 'Required';
+    }else if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/.test(values.email));
+
+    if(!values.channel){
+        errors.name = 'Required';
+    }
+
+
+    //* Returning the object of validate property
+    return errors;
+}
+
 function YoutubeForm() {
     /* 
         * Calling the useFormik hook which takes object and return a object.
         * the first property used in the useFormik hook is initialValue (CamelCase)
     */
-
-    const initialValue = {
-        name: '',
-        email: '', 
-        channel: ''
-    }
-    const onSubmit = values => {
-        console.log('Values are ', values);
-    }
-    const validatae = (values) => {
-        // keys of values object are values.name, values.email and values.channel
-        let errors = {};
-        if(!values.name){
-                errors.name = 'Required';
-        }
-        if(!values.email){
-            errors.name = 'Required';
-        }else if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/.test(values.email));
-
-        if(!values.channel){
-            errors.name = 'Required';
-        }
-
-
-        //* Returning the object of validate property
-        return errors;
-    }
-
-    
     const formik = useFormik({
         initialValues,
         onSubmit,
