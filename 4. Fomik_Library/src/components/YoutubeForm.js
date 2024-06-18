@@ -6,33 +6,38 @@ function YoutubeForm() {
         * the first property used in the useFormik hook is initialValue (CamelCase)
     */
 
-    const formik = useFormik({
-        initialValues: {
-            name: '',
-            email: '', 
-            channel: ''
-        },
-        onSubmit: values => {
-            console.log('Values are ', values);
-        },
-        validate: (values) => {
-            // keys of values object are values.name, values.email and values.channel
-            let errors = {};
-            if(!values.name){
-                    errors.name = 'Required';
-            }
-            if(!values.email){
+    const initialValue = {
+        name: '',
+        email: '', 
+        channel: ''
+    }
+    const onSubmit = values => {
+        console.log('Values are ', values);
+    }
+    const validatae = (values) => {
+        // keys of values object are values.name, values.email and values.channel
+        let errors = {};
+        if(!values.name){
                 errors.name = 'Required';
-            }else if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/.test(values.email));
-
-            if(!values.channel){
-                errors.name = 'Required';
-            }
-
-
-            //* Returning the object of validate property
-            return errors;
         }
+        if(!values.email){
+            errors.name = 'Required';
+        }else if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/.test(values.email));
+
+        if(!values.channel){
+            errors.name = 'Required';
+        }
+
+
+        //* Returning the object of validate property
+        return errors;
+    }
+
+    
+    const formik = useFormik({
+        initialValues,
+        onSubmit,
+        validate,
     })
 
 
