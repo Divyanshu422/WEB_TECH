@@ -1,6 +1,6 @@
 import React from 'react'
 import * as Yup from 'yup';
-import { Formik } from 'formik'
+import { Formik, Form } from 'formik'
 
         const initialValues = {
             name: '',
@@ -15,7 +15,7 @@ import { Formik } from 'formik'
         * assign the variable to the Yup.Object()
         * to the Yup.Object() => pass the rules for each form fields as shown
       */
-=
+
       const validationSchema = Yup.object({
         // Validation for each field
         name: Yup.string().required('Required!'),
@@ -30,7 +30,7 @@ function YoutubeForm() {
         onSubmit = {onSubmit}
         validationSchema = {validationSchema}
     >
-        <form onSubmit={formikObject.handleSubmit}>
+        <Form>
 
             <div className='form-control'>
                 <label htmlFor='name'>Name</label>
@@ -64,7 +64,7 @@ function YoutubeForm() {
             </div>
             
             <button type='submit'>Submit</button>
-        </form>      
+        </Form>      
     </Formik>
   )
 }
