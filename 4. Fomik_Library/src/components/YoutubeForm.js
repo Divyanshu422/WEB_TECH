@@ -10,30 +10,30 @@ import { useFormik } from 'formik'
         const onSubmit = values => {
             // console.log('Values are ', values);
         }
-        const validate = (values) => {
-            /* 
-            * keys of values object are values.name, values.email and values.channel. 
-            * the keys to the error object in the validate property of the useFormik hook 
-            * shall be same as the values object key
-            */
-            let errors = {};
-            if(!values.name){
-                    errors.name = 'Required'; 
-            }
-            if(!values.email){
-                errors.email = 'Required';
-            }   else if ( /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(values.email)){
-                errors.email = 'Invalid email format'
-            }
+        // const validate = (values) => {
+        //     /* 
+        //     * keys of values object are values.name, values.email and values.channel. 
+        //     * the keys to the error object in the validate property of the useFormik hook 
+        //     * shall be same as the values object key
+        //     */
+        //     let errors = {};
+        //     if(!values.name){
+        //             errors.name = 'Required'; 
+        //     }
+        //     if(!values.email){
+        //         errors.email = 'Required';
+        //     }   else if ( /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(values.email)){
+        //         errors.email = 'Invalid email format'
+        //     }
 
-            if(!values.channel){
-                errors.channel = 'Required';
-            }
+        //     if(!values.channel){
+        //         errors.channel = 'Required';
+        //     }
 
 
-            //* Returning the object of validate property
-            return errors;
-        }
+        //     //* Returning the object of validate property
+        //     return errors;
+        // }
 
       /*
         * Creating the validationSchema constant variable
