@@ -37,24 +37,18 @@ function YoutubeForm() {
                        id='name' 
                        name='name' 
                 />
-                {
-                   formikObject.touched.name && formikObject.errors.name ? <div className='error'>{formikObject.errors.name} </div> : null
-                }
+                <ErrorMessage name ='name'/>
             </div>
              {/* Adding the html skeleton */}
             <div className='form-control'>
                 <label htmlFor='email'>Email</label>
                 <Field type='email' id='email' name='email' {...formikObject.getFieldProps('email')} />
-                {
-                    formikObject.touched.email && formikObject.errors.email ? <div className='error '>{formikObject.errors.email} </div> : null
-                }
+                <ErrorMessage name ='email'/>
             </div>
             <div className='form-control'>
                 <label htmlFor='channel'>Channel</label>
                 <Field type='text'id='channel' name='channel' placeholder='YouTube channel name' onChange={formikObject.handleChange} value={formikObject.values.channel} onBlur={formikObject.handleBlur}/>
-                {
-                    formikObject.touched.channel &&  formikObject.errors.channel ? <div className='error'>{formikObject.errors.channel} </div> : null
-                }
+                <ErrorMessage name ='channel'/>
             </div>
             <button type='submit'>Submit</button>
         </Form>      
