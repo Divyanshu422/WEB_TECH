@@ -1,6 +1,6 @@
 import React from 'react'
 import * as Yup from 'yup';
-import { Formik } from 'formik'
+import { useFormik } from 'formik'
 
         const initialValues = {
             name: '',
@@ -10,12 +10,37 @@ import { Formik } from 'formik'
         const onSubmit = values => {
             // console.log('Values are ', values);
         }
+        // const validate = (values) => {
+        //     /* 
+        //     * keys of values object are values.name, values.email and values.channel. 
+        //     * the keys to the error object in the validate property of the useFormik hook 
+        //     * shall be same as the values object key
+        //     */
+        //     let errors = {};
+        //     if(!values.name){
+        //             errors.name = 'Required'; 
+        //     }
+        //     if(!values.email){
+        //         errors.email = 'Required';
+        //     }   else if ( /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(values.email)){
+        //         errors.email = 'Invalid email format'
+        //     }
+
+        //     if(!values.channel){
+        //         errors.channel = 'Required';
+        //     }
+
+
+        //     //* Returning the object of validate property
+        //     return errors;
+        // }
+
       /*
         * Creating the validationSchema constant variable
         * assign the variable to the Yup.Object()
         * to the Yup.Object() => pass the rules for each form fields as shown
       */
-=
+
       const validationSchema = Yup.object({
         // Validation for each field
         name: Yup.string().required('Required!'),
@@ -23,13 +48,27 @@ import { Formik } from 'formik'
         channel: Yup.string().required('Required!'),
       })
 
-function YoutubeForm() {
+function OldYoutubeForm() {
+    /* 
+        * Calling the useFormik hook which takes object and return a object.
+        * the first property used in the useFormik hook is initialValue (CamelCase)
+    */
+
+    const formikObject = useFormik({
+        initialValues,
+        onSubmit,
+        // validate
+        validationSchema 
+    })
+
+
+    // console.log(formikObject.values)
+    // console.log(formikObject.errors)
+    console.log('the field which is visited are ',formikObject.touched)
+
+
   return (
-    <Formik
-        initialValues = {initialValues}
-        onSubmit = {onSubmit}
-        validationSchema = {validationSchema}
-    >
+    <>
         <form onSubmit={formikObject.handleSubmit}>
 
             <div className='form-control'>
@@ -37,8 +76,9 @@ function YoutubeForm() {
                 <input type='text' 
                        id='name' 
                        name='name' 
-                       //* Calling the prop
-                       {...formikObject.getFieldProps('name')} 
+                       onChange={formikObject.handleChange} 
+                       value={formikObject.values.name} 
+                       onBlur={formikObject.handleBlur}
                 />
                 {
                    formikObject.touched.name && formikObject.errors.name ? <div className='error'>{formikObject.errors.name} </div> : null
@@ -48,7 +88,7 @@ function YoutubeForm() {
             
             <div className='form-control'>
                 <label htmlFor='email'>Email</label>
-                <input type='email' id='email' name='email' {...formikObject.getFieldProps('email')} />
+                <input type='email' id='email' name='email' onChange={formikObject.handleChange} value={formikObject.values.email} onBlur={formikObject.handleBlur}/>
                 {
                     formikObject.touched.email && formikObject.errors.email ? <div className='error '>{formikObject.errors.email} </div> : null
                 }
@@ -65,8 +105,8 @@ function YoutubeForm() {
             
             <button type='submit'>Submit</button>
         </form>      
-    </Formik>
+    </>
   )
 }
 
-export default YoutubeForm
+export default OldYoutubeForm
