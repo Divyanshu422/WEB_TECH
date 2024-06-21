@@ -6,16 +6,15 @@ import * as Yup from 'yup';
         const initialValues = {
             name: '',
             email: '', 
-            channel: ''
+            channel: '',
+            comments: '',
+            social:{
+                facebook: '',   
+            }
         }
         const onSubmit = values => {
             // console.log('Values are ', values);
         }
-      /*
-        * Creating the validationSchema constant variable
-        * assign the variable to the Yup.Object()
-        * to the Yup.Object() => pass the rules for each form fields as shown
-      */
       const validationSchema = Yup.object({
         // Validation for each field
         name: Yup.string().required('Required!'),
@@ -42,13 +41,18 @@ function YoutubeForm() {
              {/* Adding the html skeleton */}
             <div className='form-control'>
                 <label htmlFor='email'>Email</label>
-                <Field type='email' id='email' name='email' {...formikObject.getFieldProps('email')} />
+                <Field type='email' id='email' name='email' />
                 <ErrorMessage name ='email'/>
             </div>
             <div className='form-control'>
                 <label htmlFor='channel'>Channel</label>
-                <Field type='text'id='channel' name='channel' placeholder='YouTube channel name' onChange={formikObject.handleChange} value={formikObject.values.channel} onBlur={formikObject.handleBlur}/>
+                <Field type='text'id='channel' name='channel' placeholder='YouTube channel name'/>
                 <ErrorMessage name ='channel'/>
+            </div>
+
+            <div className='form-control'>
+                <label htmlFor='comments'>Comments</label>
+                <Field as='textarea' name='comments' id='comments'/>
             </div>
             <button type='submit'>Submit</button>
         </Form>      

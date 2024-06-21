@@ -1,11 +1,13 @@
 
 import './App.css';
+import Form from './components/Lecture1/Form';
 import YoutubeForm from './components/YoutubeForm';
 
 function App() {
   return (
     <div className='App'>
-      <YoutubeForm/>
+      {/* <YoutubeForm/> */}
+      <Form/>
     </div>
   );
 }
