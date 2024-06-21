@@ -1,19 +1,40 @@
-/* 
- * In first draft we are creating a basic form which has 3 fields: name, email and 
- * channel along with summit button. In this draft we have created a simple 3 input
- * fields and applied css on the app.css file.
+/*
+    * In this video, we will install the formik library and called the useFormik hook
+    * as shown in the code. the useFormik hook takes an object as a parameter and return
+    * a object which contains varities of methods and properties which are used in the 
+    * code (like values property, onSubmit etc).
+    * In the code we have used same name for the htmlfor, id and name attribute of 
+    * label and input tag.
 */
 import React from 'react'
+import { useFormik } from 'formik'      //! Import the formik hook
+
 
 function Form() {
+    
+    /*
+        * the useFormik hook takes the object as an input and return a object. in my
+        * code I have named the returned object as formik (Line 21). this object will 
+        * Helps in managing the state, handling the submission and validation + error
+        * message. 
+    */
+    const formik = useFormik({
+            // will take object
+    })
+
+
+
+
+
+    
   return (
     <div>
         <form>
-            <label for='name'>Name:</label>
+            <label htmlfor='name'>Name:</label>
             <input type='text' id ='name' name='name'/>
-            <label for='email'>Email:</label>
+            <label htmlfhtmlor='email'>Email:</label>
             <input type='email' id ='email' name='name'/>
-            <label for='channel'>Channel:</label>
+            <label htmlfor='channel'>Channel:</label>
             <input type='text' id ='channel' name='name'/>
             <button>Submit</button>
         </form>
