@@ -1,6 +1,5 @@
-<!-- Populating the html with the element created using the React code -->
-<!-- *
-      * Step 1: including the react file in the script code -->
+<!-- Rather than including the react code in the html file is bad practice. we can create a new 
+     file called app.js and include it in the html file. -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,16 +21,6 @@
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
 
-    <script>
-      // Creating the element in the react using the createElement method which consume 3 parametere: name of tag, {id/class Name}, Message
-      const heading = React.createElement("h1", {}, "Hello world from React");
-      // Creating the root element in the react which take html root as parameter. this is
-      // place where the react renders its code. To create the root elment we need createRoot() method.
-
-      // Creating the element is the job of react but render the code into the html is the job of reactDom
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-      // Rendering the element in the html
-      root.render(heading);
-    </script>
+    <script src="App.js"></script>
   </body>
 </html>
