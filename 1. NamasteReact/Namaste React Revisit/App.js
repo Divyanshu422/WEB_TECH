@@ -1,5 +1,5 @@
 // Creating the element in the react using the createElement method which consume 3 parametere: name of tag, {id/class Name}, Message
-const heading = React.createElement("h1", {}, "Hello world from React");
+const heading = React.createElement("h1", {id:'heading'}, "Hello world from React");
 // Creating the root element in the react which take html root as parameter. this is
 // place where the react renders its code. To create the root elment we need createRoot() method.
 
