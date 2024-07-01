@@ -1,9 +1,13 @@
     /*
         * Creating the nested structure
         *     <div id = 'parent'>
-        *           <div id = 'child'>
+        *           <div id = 'child1'>
         *               <h1> Hello World! I am sibling 1</h1>
         *               <h1> Hello World! I am sibling 2 </h1>
+        *           </div>
+        *           <div id = 'child2'>
+        *               <h1> Hello World! I am sibling 3</h1>
+        *               <h1> Hello World! I am sibling 4</h1>
         *           </div>
         *     <div>
     */
@@ -11,11 +15,17 @@
     // When u want to create the sibling -> u need to pass the 3rd argument as array
     
     const heading = React.createElement("div", {id:'parent'}, 
-                                React.createElement("div", {id:'child'},
+                                [ React.createElement("div", {id:'child'},
                                        [
                                         React.createElement('h1',{},'Hello World! I am sibling 1'), 
                                         React.createElement('h1',{},'Hello World! I am sibling 2')
-                                       ]));
+                                       ]),
+                                 React.createElement("div", {id:'child2'},
+                                        [
+                                         React.createElement('h1',{},'Hello World! I am sibling 3'), 
+                                         React.createElement('h1',{},'Hello World! I am sibling 4')
+                                        ]),
+                                ]);
 
 
     console.log(heading);
