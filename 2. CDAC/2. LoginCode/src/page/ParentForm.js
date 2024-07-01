@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import FirstForm from '../component/Form/FirstForm'
+import SecondForm from '../component/Form/SecondForm'
 
 function ParentForm() {
 
@@ -18,15 +20,30 @@ function ParentForm() {
     }
 
     console.log(page);
+
+    /*
+        * Creating the switch
+    */
+   const handleForm = () =>{
+    switch(page){
+        case 0: 
+            return <FirstForm/>
+        case 1: 
+            return <SecondForm/>
+        default:
+         return null;
+        }
+    }
   return (
     <div>
-
+        {/* Rendering the Form */}
+        <div>{handleForm()}</div>
         {/* Button */}
         <button onClick={handlePrev}>Previous</button>
         <button onClick={handleNext}>Next</button>
 
     </div>
   )
-}
+};
 
-export default ParentForm
+export default ParentForm;

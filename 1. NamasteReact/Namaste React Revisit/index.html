@@ -1,0 +1,30 @@
+<!-- Creating the root element and using the JS to inject the element into the code -->
+<!-- !
+    * Step 1: to inject the new element in the html using javaScript => we need
+    * to include the js code in the html code. for this we usie the script tag
+    * Step 2: Create the element in JS using createElement() method
+    * Step 3: Add the element to the DOM using appendChild() method
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Creating the div element with the root -->
+    <div id="root"></div>
+
+    <script>
+      // Creating the element
+      const heading = document.createElement("h1");
+      // Injecting the data into the element
+      heading.textContent = "Hello World from the JavaScript";
+      // Injecting the element into the root
+      const root = document.getElementById("root");
+      root.appendChild(heading);
+    </script>
+  </body>
+</html>
