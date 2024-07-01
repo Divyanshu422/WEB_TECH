@@ -1,9 +1,11 @@
-// Creating the element in the react using the createElement method which consume 3 parametere: name of tag, {id/class Name}, Message
-const heading = React.createElement("h1", {id:'heading'}, "Hello world from React");
-// Creating the root element in the react which take html root as parameter. this is
-// place where the react renders its code. To create the root elment we need createRoot() method.
 
-// Creating the element is the job of react but render the code into the html is the job of reactDom
-const root = ReactDOM.createRoot(document.getElementById("root"));
-// Rendering the element in the html
-root.render(heading);
+    const heading = React.createElement("h1", {id:'heading'}, "Hello world from React");
+
+        //  what is heading? or what createElement gives to developer? => an object or an element
+        // Checking the type of heading
+        console.log(heading); //! An object which has inbuilts props (like id, attribute etc)
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    root.render(heading); // the meaning of this line is to take h1 element created in react and place in the 
+    // div with id root in the index.html file
