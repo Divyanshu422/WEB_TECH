@@ -1,5 +1,6 @@
-<!-- Including the react into the code using the CDN Link  -->
-
+<!-- Populating the html with the element created using the React code -->
+<!-- *
+      * Step 1: including the react file in the script code -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,10 +13,6 @@
     <div id="root"></div>
 
     <!-- * Adding the react into the code using the CDN Link -->
-    <!-- Copy the link and search on browser => u will find the JS code. hence react is 
-           JS Library in total -->
-    <!-- What is crossorigin? -->
-    <!-- crossorigin is an HTML attribute that specifies whether a script or link should be loaded with CORS (Cross-Origin Resource Sharing) enabled or not.  -->
     <script
       crossorigin="anonymous"
       src="https://unpkg.com/react@18/umd/react.development.js"
@@ -24,5 +21,17 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
+
+    <script>
+      // Creating the element in the react using the createElement method which consume 3 parametere: name of tag, {id/class Name}, Message
+      const heading = React.createElement("h1", {}, "Hello world from React");
+      // Creating the root element in the react which take html root as parameter. this is
+      // place where the react renders its code. To create the root elment we need createRoot() method.
+
+      // Creating the element is the job of react but render the code into the html is the job of reactDom
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      // Rendering the element in the html
+      root.render(heading);
+    </script>
   </body>
 </html>
