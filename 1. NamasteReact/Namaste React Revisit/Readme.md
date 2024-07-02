@@ -7,3 +7,5 @@
 
 - Injected the element using the JS code
 - included the React in the code using `CDN` links
+
+# Lecture 2:
