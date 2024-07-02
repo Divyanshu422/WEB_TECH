@@ -1,3 +1,6 @@
+        // Since we have installed the react using the package -> so we need to import the react into the file
+        import React from 'react';
+        import ReactDOM from 'react-dom';
         const heading = React.createElement("div", {id:'parent'}, 
                                 [ React.createElement("div", {id:'child'},
                                        [
