@@ -1,3 +1,5 @@
+
+
 /*
     * 1. accessor: In React Table, an accessor is a property of a column 
     * definition that specifies how to extract and format data for that 
@@ -5,7 +7,7 @@
     * value within a data object, enabling the table to display the 
     * appropriate data for each cell in that column.
 */
- 
+  
  export const Columns = [
     {
         Header: 'Id',
@@ -19,11 +21,6 @@
         Header: 'Last Name',
         accessor: 'last_name'
     },
-    // {
-    //     Header: 'Email',
-    //     accessor: 'email'
-        
-    // },
     {
         Header: 'Date of Birth',
         accessor: 'date_of_birth'
