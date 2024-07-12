@@ -10,14 +10,28 @@ export const BasicTable = () => {
         },[])
         const data = useMemo(()=> MOCK_DATA, [])
 
-        //* 1. The call to the useTable return an table instance which is stored in the constant variable
         const tableInstance = useTable({
             columns: column,
             data: data
         })
 return (
-        <div>
-                
-        </div>
+    //  Creating the basic table strucutre with followiung tags -> <thead> <tbody> <tr> <th> <td> 
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     ) 
 }
