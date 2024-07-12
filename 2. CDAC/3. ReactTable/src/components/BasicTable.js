@@ -9,14 +9,18 @@ export const BasicTable = () => {
             return Columns
         },[])
         const data = useMemo(()=> MOCK_DATA, [])
-
+        /*
+            * we need to use the table instance with our jsx (table skeleton -> in html) to render all necessary ui 
+            * we begin by destructuring a couple of properties and methods from the table instance
+        */
         const tableInstance = useTable({
             columns: column,
             data: data
         })
-return (
-    //  Creating the basic table strucutre with followiung tags -> <thead> <tbody> <tr> <th> <td> 
+        const {getTableBodyProps,  getTableProps, headerGroups, rows, prepareRow } = tableInstance;
 
+        
+return (
         <table>
             <thead>
                 <tr>
