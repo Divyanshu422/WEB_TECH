@@ -1,30 +1,34 @@
 import React, {useMemo} from 'react'
-
-/*
-    * to create table component => we need to import 3 things: 
-            * 1. useTable hook from the react-table
-            * 2. Mock Data which is created using the Mockroo
-            * 3. Arrays of Columns which we defined Column.js
-*/
 import { useTable } from 'react-table'
 import {MOCK_DATA} from './MOCK_DATA.json'
 import { Columns } from './Column'
 
 export const BasicTable = () => {
 
-    // * Using the useTable hook -> which takes object as the i/p.  the hook 
-    // * consume 2 properties: rows and column. 
-    // * The columns is the imported array of Columns and data represent the row
-    useTable({
-        columns: Columns,
-        data: MOCK_DATA
-    })
+        //*  the useTable hook recommends to memorize the row and columns using useMemo hook
+        /*
+            * The useMemo hook is a React hook that helps optimize performance by memoizing, or caching, 
+            * expensive calculations. It takes a callback function that performs a calculation and an array of 
+            * dependencies. If any of the dependencies change between renders, useMemo will re-run the 
+            * calculation and return the new result. If none of the dependencies change, useMemo will return the 
+            * memoized result from the previous render, avoiding the expensive re-calculation.
+        */
 
-   
+        const column = useMemo(()=>{
+            return Columns
+        },[])
+        const data = useMemo(()=> MOCK_DATA, [])
 
-  return (
-    <div>
+        //* Passing the output of useMemo hook to the useTable
+        useTable({
+            columns: column,
+            data: data
+        })
 
-    </div>
-  )
+
+return (
+        <div>
+                
+        </div>
+    ) 
 }
