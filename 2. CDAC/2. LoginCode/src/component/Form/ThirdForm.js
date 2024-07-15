@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ThirdForm = ({ otherInfo, setOtherInfo }) => {
     const handleChange = (e) => {
