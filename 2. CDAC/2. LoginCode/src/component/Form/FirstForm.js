@@ -3,7 +3,34 @@ import React from 'react';
 const FirstForm = ({ formValues, setValues }) => {
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setValues({ ...formValues, [name]: value });
+
+        let newValue = value;
+
+        if (name === 'email') {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(value)) {
+                alert('Invalid email format');
+                return;
+            }
+        }
+
+        if (name === 'name' || name === 'acronym') {
+            const nameAcronymRegex = /^[a-zA-Z\s]*$/;
+            if (!nameAcronymRegex.test(value)) {
+                alert('Only letters and spaces are allowed for Enterprise Name and Acronym');
+                return;
+            }
+        }
+
+        if (name === 'phone' || name === 'fax') {
+            const phoneRegex = /^\d+$/;
+            if (!phoneRegex.test(value)) {
+                alert('Invalid phone number format');
+                return;
+            }
+        }
+
+        setValues({ ...formValues, [name]: newValue });
     };
 
     return (
@@ -122,7 +149,7 @@ const FirstForm = ({ formValues, setValues }) => {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className='w-1/2 pl-4'>
+                        {/* <div className='w-1/2 pl-4'>
                             <label className='block text-gray-700 font-bold mb-2' htmlFor='fax'>
                                 Fax
                             </label>
@@ -135,7 +162,7 @@ const FirstForm = ({ formValues, setValues }) => {
                                 value={formValues.fax}
                                 onChange={handleChange}
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </form>
             </div>
