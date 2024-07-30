@@ -1,0 +1,120 @@
+.responsive-table2 {
+  width: 95%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow:30cqmax;
+}
+
+
+.search-container {
+  margin-bottom: 20px; /* Add some spacing below the search field */
+  margin-top: 0px;
+}
+
+.search-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 30%;
+  height: 10%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s ease-in-out;
+  margin-left: auto;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff; /* Change border color on focus */
+}
+
+.search-input::placeholder {
+  color: #999; /* Change placeholder text color */
+}
+
+
+.action-buttons3 {
+  display: inline-flex; /* Ensure buttons are inline and properly spaced */
+  gap: 20px; /* Adds space between action buttons */
+  /* background-color: rgb(50, 252, 19); */
+}
+
+.action-buttons2{
+  display: inline-flex; /* Ensure buttons are inline and properly spaced */
+  gap: 20px; /* Adds space between action buttons */
+  /* background-color: rgb(249, 67, 67); */
+}
+.responsive-table2 th,
+.responsive-table2 td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #93DAFF;
+}
+
+.responsive-table2 th {
+  background-color: #93DAFF ;
+}
+
+input[type="textxx"]{
+  margin-left: 62%;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.responsive-table2 tr:hover {
+  background-color: #63c5f9; /* Hover effect */
+}
+
+
+.new-item-form{
+  
+}
+
+button[type="submit2"] {
+  padding: 10px 20px;
+  background-color: hsl(220, 97%, 26%);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background 0.3s;
+  margin-top: 20px;
+  box-shadow: '0 8px 8px rgba(0, 0, 0, 0.5)';
+  margin-left: 60px;
+  
+}
+
+
+
+@media (max-width: 768px) {
+  .responsive-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .responsive-table2 thead {
+    display: none;
+  }
+
+  .responsive-table2 tr {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .responsive-table2 td {
+    display: block;
+    text-align: right;
+  }
+
+  .responsive-table2 td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    text-transform: uppercase;
+    float: left;
+  }
+
+}

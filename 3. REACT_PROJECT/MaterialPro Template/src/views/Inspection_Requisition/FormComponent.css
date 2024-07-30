@@ -1,0 +1,143 @@
+/* FormComponent.css */
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 30px;
+    background: rgb(187, 233, 253); /* Set background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  
+  }
+  .form-table {
+    margin-top: 30px;
+    width: 100%; /* Full width of container */
+    border-collapse: collapse; /* Ensure no gaps between cells */
+   
+  }
+  .form-column {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  select {
+    appearance: none;
+    background-color: #cde5fa;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23222" width="18px" height="18px"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+  }
+  
+  input[type="text"]:focus,
+  input[type="date"]:focus,
+  select:focus {
+    outline: none;
+    border-color: #5c93ff;
+    box-shadow: 0 0 5px #5c93ff;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: hsl(220, 97%, 26%);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background 0.3s;
+  }
+  button[type="draft-button"] {
+    padding: 10px 20px;
+    background-color: #4f4f4f;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background 0.3s;
+  }
+  button[type="cancle-button"] {
+    padding: 10px 20px;
+    background-color: #f31717;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background 0.3s;
+  }
+  button[type="draft-button"]:hover {
+    background-color: #8c8c8c76;
+    text-emphasis-color: white;
+margin-left: 30px;
+margin-right: 30px;
+  }
+  button[type="submit"]:hover {
+    background-color: #011535;
+  margin-right: 30px;
+  }
+ 
+
+  .container {
+    margin: 20px auto;
+    width: 50%;
+    max-width: 800px;
+    background-color: #4a7ac5;
+  }
+  
+  h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+
+  }
+  
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #7dcee8;
+  }
+  
+  th {
+    background-color: #a4b1dd;
+    color: #333;
+  }
+  
+  td {
+    background-color: #ffffff;
+  }
+  
+  tbody tr:last-child td {
+    border-bottom: 10px;
+  }
+  .submit-button:hover {
+    background: #45a049; /* Darker green on hover */
+  }
+  
