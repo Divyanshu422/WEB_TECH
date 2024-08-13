@@ -1,8 +1,8 @@
-
+import NavBar from "./components/NavBar";
 function App() {
   return (
-    <div className="bg-red-300">
-      Divyanshu
+    <div>
+      <NavBar/>
     </div>
   );
 }
