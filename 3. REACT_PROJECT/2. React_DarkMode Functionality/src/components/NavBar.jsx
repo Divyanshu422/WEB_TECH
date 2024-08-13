@@ -7,8 +7,8 @@ import search_icon_light from '../assets/search-w.png';
 import search_icon_dark from '../assets/search-b.png';
 
 
-
-function NavBar() {
+// Destructuring the variable and function
+function NavBar({theme , setTheme}) {
   return (
     <div className='w-full h-screen bg-[#ced8ff]'>  
       <div className='w-100 flex items-center justify-between bg-white px-14 py-4'>
