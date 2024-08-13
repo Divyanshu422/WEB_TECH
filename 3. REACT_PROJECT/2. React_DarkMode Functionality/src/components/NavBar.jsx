@@ -9,6 +9,13 @@ import search_icon_dark from '../assets/search-b.png';
 
 // Destructuring the variable and function
 function NavBar({theme , setTheme}) {
+
+    // Creating the toggle Function for changing the theme and setting the value
+
+    const toogle_mode = () => {
+      theme === 'light'? setTheme(dark): setTheme(light);
+    }
+
   return (
     <div className='w-full h-screen bg-[#ced8ff]'>  
       <div className='w-100 flex items-center justify-between bg-white px-14 py-4'>
