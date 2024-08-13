@@ -13,7 +13,8 @@ function NavBar({theme , setTheme}) {
     // Creating the toggle Function for changing the theme and setting the value
 
     const toogle_mode = () => {
-      theme === 'light'? setTheme(dark): setTheme(light);
+      theme === 'light'? setTheme('dark'): setTheme('light');
+      console.log(theme);
     }
 
   return (
@@ -36,7 +37,7 @@ function NavBar({theme , setTheme}) {
         </div>
 
         {/* Toggle icon */}
-        <img src ={toggle_night} alt='' className='w-[50px] cursor-pointer ml-[40px]'/>
+        <img src ={toggle_night} alt='' className='w-[50px] cursor-pointer ml-[40px]' onClick = {toogle_mode}/>
      </div> 
     </div>
   )
