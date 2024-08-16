@@ -1,9 +1,6 @@
-import DashBoard from "./components/DashBoard/SideBarComponent/DashBoard";
+import DashBoard from "./components/DashBoard/DashBoard";
 function App() {
-  return (  
-    <DashBoard/>
-    
-  );
+  return <DashBoard />;
 }
 
 export default App;
