@@ -1,7 +1,9 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { ThemeContext } from "../../../context/ThemeContext";
 function Navbar() {
-  return <div></div>;
+  const { theme, setTheme } = useContext(ThemeContext);
+  console.log(theme);
+  return <div>CHECKING THE ThemeContex</div>;
 }
 
 export default Navbar;
