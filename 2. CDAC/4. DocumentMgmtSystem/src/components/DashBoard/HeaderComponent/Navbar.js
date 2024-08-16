@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { ThemeContext } from "../../../context/ThemeContext";
 import { Search } from "lucide-react";
 import Logo from "../../../Assets/Navbar/Logo.png";
@@ -6,6 +6,30 @@ import User_Image from "../../../Assets/Navbar/User_Image.png";
 
 function Navbar() {
   const { theme, setTheme } = useContext(ThemeContext);
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const dropdownRef = useRef(null); // Create a ref for the dropdown
+
+  // DropDown Toggle
+  const handleDropDownToggle = () => {
+    setIsDropDownOpen(!isDropDownOpen);
+  };
+
+  // Close dropdown when clicking outside
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropDownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    // Add event listener to the document
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const toggleMode = () => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -24,7 +48,7 @@ function Navbar() {
         {/* Heading */}
         <h1
           className={`text-4xl font-bold text-center flex-grow
-         ${theme == "light" ? "text-[#FAF0E6]" : "text-[#EEEEEE]"}  
+         ${theme === "light" ? "text-[#FAF0E6]" : "text-[#EEEEEE]"}  
         `}
         >
           Welcome to AIDBMS
@@ -55,8 +79,50 @@ function Navbar() {
           </div>
 
           {/* User info */}
-          <div className=" flex p-3">
+          <div className="flex p-3 relative" onClick={handleDropDownToggle}>
             <img src={User_Image} alt="" className="w-10 h-10 rounded-md" />
+            {isDropDownOpen && (
+              <div
+                ref={dropdownRef} // Attach the ref to the dropdown
+                className={`absolute left-0 top-full mt-2 w-40 rounded-md shadow-lg
+                  ${
+                    theme === "light"
+                      ? "bg-[#134B70] text-[#E2DFD0]"
+                      : "bg-[#1E201E] text-[#EEEEEE]"
+                  }
+                `}
+              >
+                <ul className="list-none">
+                  <li
+                    className={`p-2 cursor-pointer ${
+                      theme === "light"
+                        ? "hover:bg-[#E2DFD0] hover:text-[#134B70]"
+                        : "hover:bg-[#3C3D37] hover:text-[#1E201E]"
+                    }`}
+                  >
+                    Profile
+                  </li>
+                  <li
+                    className={`p-2 cursor-pointer ${
+                      theme === "light"
+                        ? "hover:bg-[#E2DFD0] hover:text-[#134B70]"
+                        : "hover:bg-[#3C3D37] hover:text-[#1E201E]"
+                    }`}
+                  >
+                    Settings
+                  </li>
+                  <li
+                    className={`p-2 cursor-pointer ${
+                      theme === "light"
+                        ? "hover:bg-[#E2DFD0] hover:text-[#134B70]"
+                        : "hover:bg-[#3C3D37] hover:text-[#1E201E]"
+                    }`}
+                  >
+                    Logout
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
 
           {/* Toggle icon */}
