@@ -47,13 +47,13 @@ function Navbar() {
 
         {/* Heading */}
         <h1
-          className={`text-4xl font-bold text-center flex-grow
-         ${theme === "light" ? "text-[#FAF0E6]" : "text-[#EEEEEE]"}  
-        `}
+          className={`text-4xl font-bold text-center flex-grow 
+              ${theme === "light" ? "text-[#FAF0E6]" : "text-[#EEEEEE]"} 
+             `}
+          style={{ textShadow: "2px 2px 5px rgba(0, 0, 0, 0.7)" }} // Inline style for text shadow
         >
-          Welcome to AIDBMS
+          Welcome to Document Management System
         </h1>
-
         {/* Search Box and Toggle Button Container */}
         <div className="flex items-center gap-3">
           {/* Search Box */}
