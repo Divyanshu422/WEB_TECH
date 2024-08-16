@@ -10,9 +10,11 @@ import {
 } from "lucide-react";
 
 import { SideBarToggleContext } from "../../../context/SideBarToggleContext";
+import { ThemeContext } from "../../../context/ThemeContext";
 
 function SideBarItems() {
   const { expanded } = useContext(SideBarToggleContext);
+  const { theme } = useContext(ThemeContext);
   const items = [
     {
       id: 1,
@@ -61,13 +63,16 @@ function SideBarItems() {
       {items.map((item) => (
         <li
           key={item.id}
-          className={`relative flex px-3 py-2 my-1 items-center rounded-md cursor-pointer transition-colors group `}
+          className={`relative flex px-3 py-2 my-1 items-center rounded-md cursor-pointer transition-colors group ${
+            theme == "light" ? "text-[#E2DFD0]" : "text-[#EEEEEE]"
+          }`}
         >
           {item.icons}
           <span
             className={`overflow-hidden transition-all ${
-              expanded ? "w-52 ml-3" : "w-0"
-            }`}
+              expanded ? "w-32 ml-3" : "w-0"
+            }
+            ${theme == "light" ? "text-[#E2DFD0]" : "text-[#EEEEEE]"}`}
           >
             {item.text}
           </span>

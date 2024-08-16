@@ -7,19 +7,21 @@ import {
 } from "lucide-react";
 import SideBarItems from "./SideBarItems";
 
-//  Importing the image of user and Logo From Assets Folder
-// import FileManangementLogo from '../../../Assets/FileManangementLogo.png'
-import User_Image from "../../../Assets/User_Image.png";
 import { useContext } from "react";
 import { SideBarToggleContext } from "../../../context/SideBarToggleContext";
+import { ThemeContext } from "../../../context/ThemeContext";
 
 function SideBar({ children }) {
   const { expanded, setExpanded } = useContext(SideBarToggleContext);
-
+  const { theme } = useContext(ThemeContext);
   return (
     // Aside => symmentic tag
-    <aside className="h-screen  ">
-      <nav className=" h-full bg-gradient-to-b from-blue-50  to-indigo-100 flex flex-col bg-white border-2 shadow-sm">
+    <aside className=" transition-all duration-500 ease-in-out">
+      <nav
+        className={` h-full ${
+          theme == "light" ? "bg-[#134B70]" : "bg-[#1E201E]"
+        } flex flex-col   shadow-sm`}
+      >
         {/* Added the SideBar Component  */}
         <div className="p-4 pb-2 flex justify-between items-center">
           <button

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../../../context/ThemeContext";
 import { Search } from "lucide-react";
 import Logo from "../../../Assets/Navbar/Logo.png";
+import User_Image from "../../../Assets/Navbar/User_Image.png";
 
 function Navbar() {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -14,14 +15,18 @@ function Navbar() {
     <div className={`w-full transition-all duration-500 ease-in-out`}>
       <div
         className={`flex items-center justify-between px-14 ${
-          theme === "light" ? "bg-[#5A639C]" : "bg-[#1E201E]"
+          theme === "light" ? "bg-[#134B70]" : "bg-[#1E201E]"
         } transition-all duration-500 ease-in-out`}
       >
         {/* Logo */}
         <img src={Logo} alt="Logo" className="w-20 cursor-pointer" />
 
         {/* Heading */}
-        <h1 className="text-4xl font-bold text-white text-center flex-grow">
+        <h1
+          className={`text-4xl font-bold text-center flex-grow
+         ${theme == "light" ? "text-[#FAF0E6]" : "text-[#EEEEEE]"}  
+        `}
+        >
           Welcome to AIDBMS
         </h1>
 
@@ -47,6 +52,11 @@ function Navbar() {
               }`}
               aria-label="Search Icon"
             />
+          </div>
+
+          {/* User info */}
+          <div className=" flex p-3">
+            <img src={User_Image} alt="" className="w-10 h-10 rounded-md" />
           </div>
 
           {/* Toggle icon */}
