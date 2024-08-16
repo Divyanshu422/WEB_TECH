@@ -1,66 +1,64 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../../context/ThemeContext";
+import { Search } from "lucide-react";
 import Logo from "../../../Assets/Navbar/Logo.png";
+
 function Navbar() {
   const { theme, setTheme } = useContext(ThemeContext);
-  console.log(theme);
 
-  // Creating the toggle function for changing the theme and setting the value
-  const toggle_mode = () => {
+  const toggleMode = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
+
   return (
-    <div
-      className={` w-full ${
-        theme === "light" ? "bg-[#ced8ff]" : "bg-[#222]"
-      } transition-all duration-5000 ease-in-out`}
-    >
+    <div className={`w-full transition-all duration-500 ease-in-out`}>
       <div
-        className={`w-100 flex items-center justify-between ${
-          theme === "light" ? "bg-white" : "bg-gray-800"
-        } px-14 transition-all duration-5000 ease-in-out`}
+        className={`flex items-center justify-between px-14 ${
+          theme === "light" ? "bg-[#5A639C]" : "bg-[#1E201E]"
+        } transition-all duration-500 ease-in-out`}
       >
         {/* Logo */}
         <img src={Logo} alt="Logo" className="w-20 cursor-pointer" />
 
-        {/* <ul
-          className={`flex gap-10 cursor-pointer font-bold text-xl ${
-            theme === "light" ? "text-black" : "text-white"
-          }`}
-        >
-          <li>Home</li>
-          <li>Products</li>
-          <li>Features</li>
-          <li>About</li>
-        </ul> */}
+        {/* Heading */}
+        <h1 className="text-4xl font-bold text-white text-center flex-grow">
+          Welcome to AIDBMS
+        </h1>
 
-        {/* Search Box */}
-        {/* <div
-          className={`flex items-center ${
-            theme === "light" ? "bg-gray-200" : "bg-gray-700"
-          } px-[10px] gap-3 py-[10px] rounded-[50px] transition-all duration-5000 ease-in-out`}
-        >
-          <input
-            type="text"
-            placeholder="Search"
-            className={`outline-none bg-transparent font-[18px] border-[0] ml-3 max-w-[200px] ${
-              theme === "light" ? "text-black" : "text-white"
-            }`}
-          />
-          <img
-            src={theme === "light" ? search_icon_dark : search_icon_light}
-            alt="Search Icon"
-            className="w-[20px] mr-2 cursor-pointer"
-          />
-        </div> */}
+        {/* Search Box and Toggle Button Container */}
+        <div className="flex items-center gap-3">
+          {/* Search Box */}
+          <div
+            className={`flex items-center px-3 gap-2 py-2 rounded-full ${
+              theme === "light" ? "bg-[#EEEEEE]" : "bg-[#3C3D37]"
+            } transition-all duration-500 ease-in-out`}
+          >
+            <input
+              type="text"
+              placeholder="Search"
+              className={`outline-none bg-transparent text-${
+                theme === "light" ? "black" : "white"
+              } font-medium`}
+              aria-label="Search"
+            />
+            <Search
+              className={`w-5 cursor-pointer text-${
+                theme === "light" ? "black" : "white"
+              }`}
+              aria-label="Search Icon"
+            />
+          </div>
 
-        {/* Toggle icon */}
-        {/* <img
-          src={theme === "light" ? toggle_night : toggle_light}
-          alt="Toggle Theme"
-          className="w-[50px] cursor-pointer ml-[40px]"
-          onClick={toggle_mode}
-        /> */}
+          {/* Toggle icon */}
+          <button
+            onClick={toggleMode}
+            aria-label="Toggle Theme"
+            className="w-10 h-10 cursor-pointer"
+          >
+            {theme === "light" ? "🌙" : "☀️"}{" "}
+            {/* Simple text toggle for demo */}
+          </button>
+        </div>
       </div>
     </div>
   );
