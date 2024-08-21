@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { ThemeContext } from "../../../context/ThemeContext";
-import { Search } from "lucide-react";
+import { Search, AlignCenter } from "lucide-react";
 import Logo from "../../../Assets/Navbar/Logo.png";
 import User_Image from "../../../Assets/Navbar/User_Image.png";
 
@@ -44,40 +44,17 @@ function Navbar() {
       >
         {/* Logo */}
         <img src={Logo} alt="Logo" className="w-20 cursor-pointer" />
+        <div className="flex items-center bg-[#F5F5F5] p-3 rounded-md col-span-2">
+          <Search />
+          <input
+            type="text"
+            placeholder="Search in Drive"
+            className="w-[740px] bg-transparent outline-none px-2"
+          />
+          <AlignCenter />
+        </div>
 
-        {/* Heading */}
-        <h1
-          className={`text-4xl font-bold text-center flex-grow 
-              ${theme === "light" ? "text-[#FAF0E6]" : "text-[#EEEEEE]"} 
-             `}
-          style={{ textShadow: "2px 2px 5px rgba(0, 0, 0, 0.7)" }} // Inline style for text shadow
-        >
-          Welcome to Document Management System
-        </h1>
-        {/* Search Box and Toggle Button Container */}
         <div className="flex items-center gap-3">
-          {/* Search Box */}
-          <div
-            className={`flex items-center px-3 gap-2 py-2 rounded-full ${
-              theme === "light" ? "bg-[#EEEEEE]" : "bg-[#3C3D37]"
-            } transition-all duration-500 ease-in-out`}
-          >
-            <input
-              type="text"
-              placeholder="Search"
-              className={`outline-none bg-transparent text-${
-                theme === "light" ? "black" : "white"
-              } font-medium`}
-              aria-label="Search"
-            />
-            <Search
-              className={`w-5 cursor-pointer text-${
-                theme === "light" ? "black" : "white"
-              }`}
-              aria-label="Search Icon"
-            />
-          </div>
-
           {/* User info */}
           <div className="flex p-3 relative" onClick={handleDropDownToggle}>
             <img src={User_Image} alt="" className="w-10 h-10 rounded-md" />
