@@ -1,10 +1,13 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 import { FolderUp } from "lucide-react";
+
 function Data() {
   const [showModal, setShowModal] = useState(false);
   const [files, setFiles] = useState([]);
   const [currentFile, setCurrentFile] = useState(null);
   const modalRef = useRef(null);
+  const { theme } = useContext(ThemeContext);
 
   const handleUploadClick = () => {
     setShowModal(true);
@@ -65,20 +68,26 @@ function Data() {
   };
 
   return (
-    <div className="m-4">
+    <div
+      className={`m-4 ${
+        theme === "light" ? "bg-white text-gray-800" : "bg-gray-900 text-white"
+      }`}
+    >
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-4xl font-bold text-gray-800 text-center flex-grow">
+        <h1 className="text-4xl font-bold text-center flex-grow">
           Welcome to Document Management System
         </h1>
         <button
-          className="bg-blue-600 hover:bg-blue-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out flex items-center"
+          className={`bg-blue-600 hover:bg-blue-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out flex items-center ${
+            theme === "light" ? "bg-blue-600" : "bg-blue-700"
+          }`}
           onClick={handleUploadClick}
           aria-label="Upload Document"
         >
           Upload <FolderUp className="ml-2" />
         </button>
       </div>
-      <p className="text-lg text-gray-600 text-center">
+      <p className="text-lg text-center">
         Manage your documents efficiently and securely.
       </p>
 
@@ -87,7 +96,11 @@ function Data() {
         {files.map((fileData, index) => (
           <div
             key={index}
-            className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md"
+            className={`flex flex-col items-center p-4 rounded-lg shadow-md ${
+              theme === "light"
+                ? "bg-white text-gray-800"
+                : "bg-gray-800 text-white"
+            }`}
           >
             {fileData.file.type.startsWith("image/") && (
               <img
@@ -99,7 +112,7 @@ function Data() {
             {fileData.file.type === "application/pdf" && (
               <div className="flex flex-col items-center">
                 <span className="text-6xl mb-2">📄</span>
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-sm font-medium">
                   {fileData.file.name}
                 </span>
               </div>
@@ -114,18 +127,12 @@ function Data() {
               </video>
             )}
             <div className="mt-2">
-              <span className="font-medium text-gray-700">Document Name:</span>{" "}
-              <span className="text-gray-600">
-                {fileData.documentName || "N/A"}
-              </span>
+              <span className="font-medium">Document Name:</span>{" "}
+              <span>{fileData.documentName || "N/A"}</span>
             </div>
             <div className="mt-2">
-              <span className="font-medium text-gray-700">
-                Document Description:
-              </span>{" "}
-              <span className="text-gray-600">
-                {fileData.documentDescription || "N/A"}
-              </span>
+              <span className="font-medium">Document Description:</span>{" "}
+              <span>{fileData.documentDescription || "N/A"}</span>
             </div>
           </div>
         ))}
@@ -139,10 +146,16 @@ function Data() {
           <div className="flex items-center justify-center min-h-screen">
             <div
               ref={modalRef}
-              className="bg-white rounded-lg shadow-lg w-full max-w-md p-6"
+              className={`rounded-lg shadow-lg w-full max-w-md p-6 ${
+                theme === "light" ? "bg-white" : "bg-gray-800"
+              }`}
             >
               <h2 className="text-2xl font-bold mb-4">Upload Files</h2>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 mb-4">
+              <div
+                className={`border-2 border-dashed rounded-lg p-6 mb-4 ${
+                  theme === "light" ? "border-gray-300" : "border-gray-600"
+                }`}
+              >
                 <input
                   type="file"
                   multiple
@@ -167,27 +180,37 @@ function Data() {
                     placeholder="Enter Document Name"
                     value={currentFile.documentName}
                     onChange={handleDocumentNameChange}
-                    className="border rounded-lg px-4 py-2 w-full mb-4"
+                    className={`border rounded-lg px-4 py-2 w-full mb-4 ${
+                      theme === "light"
+                        ? "border-gray-300"
+                        : "border-gray-600 text-gray-800"
+                    }`}
                   />
                   <textarea
                     placeholder="Enter Document Description"
                     value={currentFile.documentDescription}
                     onChange={handleDocumentDescriptionChange}
-                    className="border rounded-lg px-4 py-2 w-full mb-4 h-24"
+                    className={`border rounded-lg px-4 py-2 w-full mb-4 h-24 ${
+                      theme === "light"
+                        ? "border-gray-300"
+                        : "border-gray-600 text-gray-800"
+                    }`}
                   ></textarea>
                 </>
               )}
               <div className="flex justify-end">
                 <button
                   type="button"
-                  className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg mr-2"
+                  className={`bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg mr-2 ${
+                    theme === "light" ? "bg-gray-200" : "bg-gray-700 text-white"
+                  }`}
                   onClick={handleModalClose}
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
-                  className="bg-blue-600 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg"
+                  className={`bg-blue-600 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg`}
                   onClick={handleSave}
                 >
                   Save
