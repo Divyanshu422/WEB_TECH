@@ -106,19 +106,22 @@ function Data() {
               <img
                 src={URL.createObjectURL(fileData.file)}
                 alt={fileData.file.name}
-                className="w-full h-auto max-w-[300px] mb-2 object-cover"
+                className="w-full h-auto max-w-[200px] mb-2 object-cover" // Decreased max width
               />
             )}
             {fileData.file.type === "application/pdf" && (
               <div className="flex flex-col items-center">
-                <span className="text-6xl mb-2">📄</span>
+                <span className="text-4xl mb-2">📄</span>{" "}
+                {/* Decreased icon size */}
                 <span className="text-sm font-medium">
                   {fileData.file.name}
                 </span>
               </div>
             )}
             {fileData.file.type.startsWith("video/") && (
-              <video controls className="w-full h-auto max-w-[300px] mb-2">
+              <video controls className="w-full h-auto max-w-[200px] mb-2">
+                {" "}
+                {/* Decreased max width */}
                 <source
                   src={URL.createObjectURL(fileData.file)}
                   type={fileData.file.type}
