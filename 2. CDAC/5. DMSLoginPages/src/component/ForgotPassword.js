@@ -1,13 +1,26 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 const ForgotPassword = () => {
   const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validate username: Only alphabetic characters allowed
+    const isValid = /^[A-Za-z]+$/.test(username);
+
+    if (!isValid) {
+      setError("Username must contain only alphabetic characters.");
+      return;
+    }
+
     // Handle the OTP sending logic here
     console.log("Username:", username);
-    navigate("/forgotlogin");
+    setError(""); // Clear any previous errors
+    navigate("/forgotpasswordotp");
   };
 
   return (
@@ -37,6 +50,7 @@ const ForgotPassword = () => {
               placeholder="Username"
               required
             />
+            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
           </div>
           <button
             type="submit"

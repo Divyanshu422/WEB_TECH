@@ -1,25 +1,55 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom"; // Ensure you have react-router-dom installed
+import { useNavigate } from "react-router-dom"; // Ensure you have react-router-dom installed
+import Captcha from "./Captcha"; // Ensure Captcha component is correctly imported
 
 function ForgotPasswordLoginPage() {
   const navigate = useNavigate();
   // State management for form inputs
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [captcha, setCaptcha] = useState("");
-  const [enteredCaptcha, setEnteredCaptcha] = useState("");
+  const [formData, setFormData] = useState({
+    newPassword: "",
+    confirmPassword: "",
+    captcha: "", // Captcha value from Captcha component
+    enteredCaptcha: "", // User input for captcha
+  });
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent default form submission behavior
-    // Add your validation and submission logic here
+
+    // Destructure formData for easier access
+    const { newPassword, confirmPassword, captcha, enteredCaptcha } = formData;
+
+    // Validation logic
+    if (newPassword !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    if (enteredCaptcha !== captcha) {
+      alert("Captcha does not match.");
+      return;
+    }
+
+    // Handle form submission logic here
     console.log("Form submitted with:", {
       newPassword,
       confirmPassword,
       captcha,
       enteredCaptcha,
     });
-    navigate("/forgotlogin");
+
+    navigate("/");
+  };
+
+  // Handle changes to input fields
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Handle captcha change
+  const handleCaptchaChange = (newCaptcha) => {
+    setFormData((prev) => ({ ...prev, captcha: newCaptcha }));
   };
 
   return (
@@ -40,37 +70,34 @@ function ForgotPasswordLoginPage() {
           <form onSubmit={handleSubmit}>
             <input
               type="password"
+              name="newPassword"
               placeholder="New Password"
               className="w-full p-2 border border-gray-300 rounded-md mb-3"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
+              value={formData.newPassword}
+              onChange={handleChange}
               required
             />
 
             <input
               type="password"
+              name="confirmPassword"
               placeholder="Confirm Password"
               className="w-full p-2 border border-gray-300 rounded-md mb-3"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={formData.confirmPassword}
+              onChange={handleChange}
               required
             />
 
-            <input
-              type="text"
-              placeholder="Captcha"
-              className="w-full p-2 border border-gray-300 rounded-md mb-3"
-              value={captcha}
-              onChange={(e) => setCaptcha(e.target.value)}
-              required
-            />
+            {/* Captcha Component */}
+            <Captcha onCaptchaChange={handleCaptchaChange} />
 
             <input
               type="text"
+              name="enteredCaptcha"
               placeholder="Enter Captcha"
               className="w-full p-2 border border-gray-300 rounded-md mb-3"
-              value={enteredCaptcha}
-              onChange={(e) => setEnteredCaptcha(e.target.value)}
+              value={formData.enteredCaptcha}
+              onChange={handleChange}
               required
             />
 
