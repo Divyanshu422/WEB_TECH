@@ -7,7 +7,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     // Handle the OTP sending logic here
     console.log("Username:", username);
-    navigate("/forgotpasswordotp");
+    navigate("/forgotlogin");
   };
 
   return (

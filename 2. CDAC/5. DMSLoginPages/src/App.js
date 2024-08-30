@@ -3,6 +3,8 @@ import SignIn from "./component/SignIn";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ForgotPasswordOTP from "./component/ForgotPasswordOTP";
 import RegistrationPage from "./component/RegistrationPage";
+import ForgotPasswordLoginPage from "./component/ForgotPasswordLoginPage";
+import Dashboard from "./component/Dashboard";
 function App() {
   const appRouter = createBrowserRouter([
     {
@@ -20,6 +22,14 @@ function App() {
     {
       path: "/registration",
       Component: RegistrationPage,
+    },
+    {
+      path: "/forgotlogin",
+      element: <ForgotPasswordLoginPage />,
+    },
+    {
+      path: "/dashboard",
+      Component: Dashboard,
     },
   ]);
   return (

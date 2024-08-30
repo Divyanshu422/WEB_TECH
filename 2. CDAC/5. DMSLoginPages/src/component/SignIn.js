@@ -1,14 +1,16 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+// import { FaSync } from "react-icons/fa";
+import Captcha from "./Captcha";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
-    captcha: "1234", // Example captcha, replace with real captcha generation
+    captcha: "",
     enterCaptcha: "",
   });
-
+  const navigate = useNavigate();
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
@@ -19,16 +21,40 @@ const SignIn = () => {
     });
   };
 
+  const validateForm = () => {
+    const usernameRegex = /^[A-Za-z]+$/;
+    const passwordRegex = /^(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+    if (!usernameRegex.test(formData.username)) {
+      return "Username must contain only alphabets.";
+    }
+
+    if (!passwordRegex.test(formData.password)) {
+      return "Password must be at least 8 characters long and include at least one special symbol.";
+    }
+
+    if (formData.enterCaptcha !== formData.captcha) {
+      return "Captcha does not match. Please try again.";
+    }
+
+    return "";
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Basic validation
-    if (formData.enterCaptcha !== formData.captcha) {
-      setError("Captcha does not match. Please try again.");
+    const errorMessage = validateForm();
+    if (errorMessage) {
+      setError(errorMessage);
       return;
     }
     setError(""); // Clear error if validation passes
     // Handle form submission, such as sending data to Firebase
     console.log(formData);
+    navigate("/dashboard");
+  };
+
+  const handleCaptchaChange = (newCaptcha) => {
+    setFormData((prev) => ({ ...prev, captcha: newCaptcha }));
   };
 
   return (
@@ -38,7 +64,7 @@ const SignIn = () => {
       </header>
 
       <form
-        className="border p-8 rounded-md shadow-md flex flex-col space-y-4 w-full max-w-md"
+        className="border border-gray-300 p-8 rounded-md shadow-md flex flex-col space-y-4 w-full max-w-md"
         onSubmit={handleSubmit}
       >
         <h2 className="text-center text-lg font-semibold">Sign In</h2>
@@ -51,7 +77,7 @@ const SignIn = () => {
           placeholder="Username"
           value={formData.username}
           onChange={handleChange}
-          className="border p-2 rounded w-full"
+          className="border border-gray-300 p-2 rounded-md w-full"
           aria-label="Username"
         />
 
@@ -61,19 +87,11 @@ const SignIn = () => {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
-          className="border p-2 rounded w-full"
+          className="border border-gray-300 p-2 rounded-md w-full"
           aria-label="Password"
         />
 
-        <input
-          type="text"
-          name="captcha"
-          placeholder="Captcha"
-          value={formData.captcha}
-          readOnly // Assuming this is generated and not user-editable
-          className="border p-2 rounded w-full bg-gray-200"
-          aria-label="Captcha"
-        />
+        <Captcha onCaptchaChange={handleCaptchaChange} />
 
         <input
           type="text"
@@ -81,13 +99,13 @@ const SignIn = () => {
           placeholder="Enter Captcha"
           value={formData.enterCaptcha}
           onChange={handleChange}
-          className="border p-2 rounded w-full"
+          className="border border-gray-300 p-2 rounded-md w-full"
           aria-label="Enter Captcha"
         />
 
         <button
           type="submit"
-          className="bg-blue-500 text-white p-2 rounded w-full hover:bg-blue-600 transition duration-200"
+          className="bg-blue-500 text-white p-2 rounded-md w-full hover:bg-blue-600 transition duration-200"
         >
           Submit
         </button>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 const RegistrationPage = () => {
   const [formData, setFormData] = useState({
     salutation: "",
@@ -63,8 +64,47 @@ const RegistrationPage = () => {
             </h2>
             <hr className="border-gray-300 mb-4" />
 
-            {/* Registration Name Heading */}
-            <h3 className="text-lg font-semibold mb-2">Registration Name</h3>
+            {/* Salutation, Gender, Email */}
+            <div className="flex space-x-4 mb-4">
+              <div className="flex-1">
+                <select
+                  name="salutation"
+                  value={formData.salutation}
+                  onChange={handleChange}
+                  className="border py-2 px-3 rounded-lg h-12 w-full"
+                >
+                  <option value="">Salutation</option>
+                  <option value="Mr.">Mr.</option>
+                  <option value="Ms.">Ms.</option>
+                  <option value="Mrs.">Mrs.</option>
+                </select>
+              </div>
+              <div className="flex-1">
+                <select
+                  name="gender"
+                  value={formData.gender}
+                  onChange={handleChange}
+                  className="border py-2 px-3 rounded-lg h-12 w-full"
+                >
+                  <option value="">Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div className="flex-1">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="block border w-full p-2 mb-4 rounded-lg h-12"
+                  required
+                />
+              </div>
+            </div>
 
             {/* Name Inputs in Flex */}
             <div className="flex space-x-4 mb-4">
@@ -102,47 +142,6 @@ const RegistrationPage = () => {
                   required
                 />
                 <label className="text-xs text-gray-500">last name</label>
-              </div>
-            </div>
-
-            {/* Salutation, Gender, Email */}
-            <div className="flex space-x-4 mb-4">
-              <div className="flex-1">
-                <select
-                  name="salutation"
-                  value={formData.salutation}
-                  onChange={handleChange}
-                  className="border py-2 px-3 rounded-lg h-12 w-full"
-                >
-                  <option value="">Salutation</option>
-                  <option value="Mr.">Mr.</option>
-                  <option value="Ms.">Ms.</option>
-                  <option value="Mrs.">Mrs.</option>
-                </select>
-              </div>
-              <div className="flex-1">
-                <select
-                  name="gender"
-                  value={formData.gender}
-                  onChange={handleChange}
-                  className="border py-2 px-3 rounded-lg h-12 w-full"
-                >
-                  <option value="">Gender</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-              <div className="flex-1">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="block border w-full p-2 mb-4 rounded-lg h-12"
-                  required
-                />
               </div>
             </div>
 
@@ -220,6 +219,8 @@ const RegistrationPage = () => {
               </button>
             </div>
           </form>
+
+          
         </div>
       </main>
 
