@@ -38,7 +38,7 @@ function ForgotPasswordLoginPage() {
       enteredCaptcha,
     });
 
-    navigate("/");
+    navigate("/forgotlogin");
   };
 
   // Handle changes to input fields

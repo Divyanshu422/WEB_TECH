@@ -1,8 +1,9 @@
-// import React from "react";
 import React, { useState, useEffect } from "react";
 import { FaSync } from "react-icons/fa";
+
 const Captcha = ({ onCaptchaChange }) => {
   const [captcha, setCaptcha] = useState("");
+
   const generateCaptcha = () => {
     const characters = "0123456789!@#$%^&*";
     let captcha = "";
@@ -18,8 +19,8 @@ const Captcha = ({ onCaptchaChange }) => {
   }, []);
 
   return (
-    <div className="captcha-container mb-4 flex items-center justify-between">
-      <div className="captcha-display border border-gray-300 px-2 py-1 text-center text-lg font-bold bg-gray-200 rounded-md shadow-md flex-grow">
+    <div className="captcha-container mb-4 flex items-center justify-evenly">
+      <div className="captcha-display border border-gray-300 w-full h-full px-2 py-1 text-center text-lg font-bold bg-slate-100 rounded-md shadow-md line-through flex items-center justify-center">
         {captcha}
       </div>
       <button
