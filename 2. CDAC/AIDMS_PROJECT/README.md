@@ -1,0 +1,4 @@
+# Installed factor:
+
+- tailwind
+- router
